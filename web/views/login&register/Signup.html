@@ -1,0 +1,282 @@
+<style type="text/css">
+html,body
+{
+    position: relative;
+    height: 100%;
+}
+    .select-cat
+    {
+        border: 0;
+        background: none;
+        box-shadow: none;
+    }
+</style>
+ <div>
+ <div class="container-fluid signup height_100 " *ngIf="Signup==0" >
+        <div class="row height_100 margin-zero">
+            <div class="col-md-6 height_100 left">
+               <div class="left-section">
+                <h1>PROJECT MINT</h1>
+                <div class="sliderr">
+                    <div id="slider" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#slider" data-slide-to="0" class="active"></li>
+                            <li data-target="#slider" data-slide-to="1"></li>
+                            <li data-target="#slider" data-slide-to="2"></li>
+                            <li data-target="#slider" data-slide-to="3"></li>
+                        </ol>
+                        <!-- Wrapper for slides -->
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="carousel-inner">
+                                    <div class="item active">
+                                        <div class="carousel-content">
+                                            <div>
+                                                <h3>IT’s all happens here 
+Let your <b>BUSINESS</b> grow with right <b>opportunities</b></h3> </div>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="carousel-content">
+                                            <div>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, sint fuga temporibus nam saepe delectus expedita vitae magnam necessitatibus dolores tempore consequatur dicta cumque repellendus eligendi ducimus placeat! </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="carousel-content">
+                                            <div>
+                                                <p>Sapiente, ducimus, voluptas, mollitia voluptatibus nemo explicabo sit blanditiis laborum dolore illum fuga veniam quae expedita libero accusamus quas harum ex numquam necessitatibus provident deleniti tenetur iusto officiis recusandae corporis culpa quaerat?</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Controls -->
+                        <!--<a class="left carousel-control" href="#text-carousel" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+  </a>
+ <a class="right carousel-control" href="#text-carousel" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+  </a>--></div>
+                </div>
+                </div>
+            </div>
+            <div class="col-md-6 height_100 right">
+                <div class="header">
+                    <button class="btn btn-blue-hallow" [class.active]="loginsignup==true"  (click)="loginsignup=true">LOGIN</button>
+                    <button class="btn btn-blue-hallow" [class.active]="loginsignup==false" (click)="loginsignup=false">SIGN UP </button>
+                    <div class="clearfix"></div>
+                </div>
+                <div *ngIf="loginsignup==false" class="body">
+                    <form class="social_btn_form">
+                        <div class="form-group">
+                            <h4>Sign Up</h4> </div>
+                        <div class="form-group">
+                            <div class="signin_btn">
+                                <button class="btn linkedin_btn" onclick="onLinkedInLoad()"><i class="fa fa-linkedin" aria-hidden="true"> </i>Sign up with LinkedIn</button>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    </form>
+                    <form class="details_form" spellcheck="false" [ngFormModel]="signupform" (ngSubmit)="signupSubmit()">
+                        <div class="form-group">
+                            <div class="or_line">
+                                <hr/> <span>
+                             or
+                         </span> </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="service_radio">
+                                <label class="radio-inline">
+                                    <input type="radio" name="Service" #sp (click)="typeoforganization=sp.value" [ngFormControl]="signupform.controls['serviceprovider']" value="0"> Service Provider </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="Service" #ss (click)="typeoforganization=ss.value" [ngFormControl]="signupform.controls['serviceprovider']" value="1"> Service Seeker </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="Service" #b (click)="typeoforganization=b.value" [ngFormControl]="signupform.controls['serviceprovider']" value="2"> Both </label>
+                                    <error-messages control="serviceprovider"></error-messages>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                        <!-- the required attribute is ... required! -->
+                        <div class="form-group">
+                            <div class="control">
+                                <input type="text" class="form-control" name="title" placeholder="First Name" [ngFormControl]="signupform.controls['firstname']" #firstname="ngForm"  />
+                                <!-- yes, this is not nice, in real live, do it with JS -->
+                                <label for="title">First Name</label>
+                            </div>
+                            <error-messages control="firstname"></error-messages>
+                            <div class="clearfix"></div>
+                        </div>
+                        <!-- the required attribute is ... required! -->
+                        <div class="form-group">
+                            <div class="control">
+                                <input type="text" class="form-control" name="title" placeholder="Last Name" [ngFormControl]="signupform.controls['lastname']" #lastname="ngForm" />
+                                <!-- yes, this is not nice, in real live, do it with JS -->
+                                <label for="title">Last Name</label>
+                            </div>
+                             <error-messages control="lastname"></error-messages>
+                            <div class="clearfix"></div>
+                        </div>
+                        <!-- the required attribute is ... required! -->
+                        <div class="form-group">
+                            <div class="control">
+                                <input type="text" class="form-control" name="title" placeholder="Designation" [ngFormControl]="signupform.controls['designation']" #designation="ngForm" />
+                                <!-- yes, this is not nice, in real live, do it with JS -->
+                                <label for="title">Designation</label>
+                            </div>
+                             <error-messages control="designation"></error-messages>
+                            <div class="clearfix"></div>
+                        </div>
+                        <!-- the required attribute is ... required! -->
+                        <div class="form-group">
+                            <div class="control">
+                                <input type="text" class="form-control" name="title" placeholder="Organization" [ngFormControl]="signupform.controls['organisationname']" #organisationname="ngForm" />
+                                <!-- yes, this is not nice, in real live, do it with JS -->
+                                <label for="title">Organization</label>
+                            </div>
+                             <error-messages control="organisationname"></error-messages>
+                            
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="form-group">
+                            <div class="control">
+                                <input type="text" class="form-control" name="title" placeholder="Email" [ngFormControl]="signupform.controls['email']" #email="ngForm" />
+                                <!-- yes, this is not nice, in real live, do it with JS -->
+                                <label for="title">Email</label>
+                            </div>
+                             <error-messages control="email"></error-messages>
+                            
+                            <div class="clearfix"></div>
+                        </div>
+                         <div class="form-group">
+                        <label for="inputPassword padding-10" style="padding-top:15px">Service Category <span>*</span></label>
+                        <div class="select-arrow-css">
+                            <label for="sel1" class="form-control select-cat">
+                                <select id="sel1" [ngFormControl]="signupform.controls['serviceCategory']" #serviceCategory="ngForm" (change)="getserviceSub(serviceCategory.value)">
+                                    <option value="">--Select--</option>
+                                      <option *ngFor="#sc of serviceCategorylist" [value]="sc.value">{{sc.value}}</option>
+                                </select>
+                            </label>
+                            <error-messages control="serviceCategory"></error-messages>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword padding-10" style="padding-top:15px">Sub Category of Services <span>*</span></label>
+                        <div class="select-arrow-css">
+                            <label for="sel1" class="form-control select-cat">
+                                 <select id="sel1" [ngFormControl]="signupform.controls['servicesubCategory']" #servicesubCategory="ngForm">
+                                    <option value="">--Select--</option>
+                                      <option *ngFor="#ssc of servicesubCategorylist" [value]="ssc.value">{{ssc.value}}</option>
+                                </select>
+                            </label>
+                            <error-messages control="servicesubCategory"></error-messages>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword padding-10" style="padding-top:15px">Business Domain <span>*</span></label>
+                        <div class="select-arrow-css">
+                            <label for="sel1" class="form-control select-cat">
+          <select id="sel1" [ngFormControl]="signupform.controls['businessDomain']" #businessDomain="ngForm">
+                                    <option value="">--Select--</option>
+                                      <option *ngFor="#bd of businessDomainlist" [value]="bd.value">{{bd.value}}</option>
+                                </select>
+                            </label>
+                                                    <error-messages control="businessDomain"></error-messages>
+                        </div>
+                    </div>
+                        <div class="form-group">
+                            <label class="checkbox-inline check-boxx">
+                                <input type="checkbox" value="agree" (click)="termsaccepted=!termsaccepted" [disabled]="termsaccepted"  [ngFormControl]="signupform.controls['terms']" #terms="ngForm"> I agree to the <a href="#">Terms and Conditions</a>. </label>
+                             <error-messages control="terms"></error-messages>
+                            
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="form-group">
+                            <div class="btn_signup">
+                                <button class="btn btn-orange"  [disabled]="!signupform.valid">SIGN UP</button> <a href="javascript:void(0)" (click)="loginsignup=true">I am already a member</a> </div>
+                        </div>
+                    </form>
+                    <div class="clearfix"></div>
+                </div>
+                <div *ngIf="loginsignup==true" class="body">
+                    <form class="social_btn_form">
+                        <div class="form-group">
+                            <h4>LogIn</h4> </div>
+                        <div class="form-group">
+                            <div class="signin_btn">
+                                <button class="btn linkedin_btn" onclick="onLinkedInLoad()"><i class="fa fa-linkedin" aria-hidden="true" > </i>Login in with LinkedIn</button>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    </form>
+                     <form class="details_form" spellcheck="false" [ngFormModel]="loginform" (ngSubmit)="loginSubmit()">
+                        <div class="form-group">
+                            <div class="or_line">
+                                <hr/> <span>
+                             or
+                         </span> </div>
+                        </div>
+                      
+                        <!-- the required attribute is ... required! -->
+                        <div class="form-group">
+                            <div class="control">
+                                <input type="text" class="form-control" name="title" placeholder="Email-Id" [ngFormControl]="loginform.controls['username']" #username="ngForm" />
+                                <!-- yes, this is not nice, in real live, do it with JS -->
+                                <label for="title">Email-Id</label>
+                                
+                            </div>
+                            <error-messages control="username"></error-messages>
+                            <div class="clearfix"></div>
+                        </div>
+                        <!-- the required attribute is ... required! -->
+                        <div class="form-group">
+                            <div class="control">
+                                <input type="password" class="form-control" name="title" placeholder="Password" [ngFormControl]="loginform.controls['password']" #password="ngForm" />
+                                <!-- yes, this is not nice, in real live, do it with JS -->
+                                <label for="title">Password</label>
+                            </div>
+                            <error-messages control="password"></error-messages>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="form-group">
+                            <div class="btn_signup">
+                                <button class="btn btn-orange" [disabled]="!loginform.valid">LOGIN</button> <a href="javascript:void(0)" (click)="loginsignup=false">Go to Signup</a> </div>
+                        </div>
+                    </form>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="footer" style="position:relative">
+                    <ul>
+                        <li><a>How It Works</a></li>
+                        <li><a>Company</a></li>
+                        <li><a>Terms & Conditions</a></li>
+                        <li><a>Pricing</a></li>
+                        <li><a>Faq</a></li>
+                        <li><a>Support</a></li>
+                        <li><a>Privacy Policy</a></li> <span class="clearfix"></span> </ul>
+                    <!--                                                <div class="clearfix"></div>--></div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="Signup==1" >
+    <div style="background-color:#46617c;width:100%;height:100%">
+		<h1 style="color:#fff;font-size:35px;text-align:center;font-weight:400;font-family:'verdana','arial','Trebuchet MS',sans-serif;padding-top:20px">Project Mint</h1>
+		<p style="text-align:center;color:#fff;font-size:24px;font-weight:400;font-family:'verdana','arial','Trebuchet MS',sans-serif;">
+			Its all Happening here..join us to grow your business
+		</p>
+		<div style="max-width:500px;max-height:250px;background-color:#fff;position:absolute;padding:0px 15px;left:0;right:0;margin:auto;top:40%;-webkit-transform:translateY(-50%);-moz-transform:translateY(-50%);-o-transform:translateY(-50%);-ms-transform:translateY(-50%)">
+			<h2 style="color:#46617c;font-size:22px;font-weight:400;font-family:'verdana','arial','Trebuchet MS',sans-serif;">Verify your email address</h2>
+
+			<p style="font-size: 15px;color: #46617c;font-weight:400;font-family:'verdana','arial','Trebuchet MS',sans-serif;">
+			we now need to verify your email address .we have sent an email to <a href="">example.com</a> to verify your email
+			Please click the link in the email to continue
+			<br/><br/>
+			Don't receive mail ? <a href="">send again</a>
+			</p>
+		</div>
+</div>
+ </div>
+ </div>
+<div class="clearfix"></div>

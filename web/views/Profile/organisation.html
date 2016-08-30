@@ -1,0 +1,988 @@
+<div class="requirement">
+    <div class="container">
+        <div class="organization_profile">
+            <div class="header">
+                <div class="row">
+                    <div class="col-md-8">
+                        <h4>Organization Information</h4>
+                    </div>
+                    <div class="col-md-4">
+                        <h4>Portfolio <button class="btn btn-blue-inverse-borderless w-h-auto pull-right" data-toggle="modal"
+                                data-target="#portfolio-popup">+ Add</button><span class="clearfix"></span></h4>
+                    </div>
+                </div>
+            </div>
+            <div class="body">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="d1">
+                            <div class="d1-body">
+                                <h4>Description</h4>
+                                <form class="form-horizontal" role="form">
+                                    <fieldset>
+                                        <!-- Text input-->
+                                        <div class="form-group">
+                                            <div class="col-sm-10">
+                                                <p *ngIf="desc==0">{{orgdescrip}} </p>
+                                                <div *ngIf="desc==1">
+                                                    <textarea class="form-control" [(ngModel)]="orgdescrip"></textarea>
+                                                    <a href="javascript:void(0)" (click)="desc=0">Cancel</a>
+                                                    <a href="javascript:void(0)" (click)="updatedesc()">Save</a>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-2">
+                                                <i class="fa fa-pencil-square-o" aria-hidden="true" (click)="desc=1"></i>
+                                            </div>
+                                        </div>
+
+
+                                    </fieldset>
+                                </form>
+                                <div class="details">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <form class="form-horizontal">
+                                                <div class="form-group  dropdown dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                                    <label class="control-label col-xs-2">Business Domain</label>
+                                                    <label class="control-label col-xs-2">:</label>
+                                                    <label class="control-label col-xs-2" *ngIf="buscat==0">{{businessCategory}}</label>
+                                                    <div class="select-arrow-css col-xs-8" *ngIf="buscat==1">
+                                                        <label for="sel1" class="form-control">
+                                                                <select id="sel1" [(ngModel)]="businessCategory">
+                                                                    <option *ngFor="#bd of businessDomainlist" [value]="bd.value">{{bd.value}}</option>
+                                                                </select>
+                                                            </label>
+                                                    </div>
+                                                    <ul class="dropdown-menu">
+                                                        <li (click)="buscat=1">
+                                                            <a href="#" [class.active]="buscat==0" [class.disabled]="buscat==1"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                                        </li>
+                                                        <li (click)="updatebusidom()">
+                                                            <a href="#" [class.active]="buscat==1" [class.disabled]="buscat==0"><i class="fa fa-floppy-o" aria-hidden="true"></i></a>
+                                                        </li>
+                                                        <li (click)="buscat=0">
+                                                            <a href="#" [class.active]="buscat==1" [class.disabled]="buscat==0"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="form-group  dropdown dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                                    <label class="control-label col-xs-2">Service Category</label>
+                                                    <label class="control-label col-xs-2">:</label>
+                                                    <label *ngIf="sercat==0" class="control-label col-xs-2">{{serviceCagtegory}}</label>
+                                                    <div class="select-arrow-css col-xs-8" *ngIf="sercat==1">
+                                                        <label for="sel1" class="form-control">
+                                                                <select id="sel1" #serviceCategory (change)="getserviceSub(serviceCategory.value)" [(ngModel)]="serviceCagtegory">
+                                                                    <option *ngFor="#sc of serviceCategorylist" [value]="sc.value">{{sc.value}}</option>
+                                                                </select>
+                                                            </label>
+                                                    </div>
+
+
+                                                    <ul class="dropdown-menu">
+                                                        <li (click)="sercat=1;getServiceCategory()">
+                                                            <a href="#" [class.active]="sercat==0" [class.disabled]="sercat==1"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                                        </li>
+                                                        <li (click)="sercat=0;updatecat()">
+                                                            <a href="#" [class.active]="sercat==1" [class.disabled]="sercat==0"><i class="fa fa-floppy-o" aria-hidden="true"></i></a>
+                                                        </li>
+                                                        <li (click)="sercat=0">
+                                                            <a href="#" [class.active]="sercat==1" [class.disabled]="sercat==0"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="form-group  dropdown dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                                    <label class="control-label col-xs-2">Sub Category</label>
+                                                    <label class="control-label col-xs-2">:</label>
+                                                    <label *ngIf="sercat==0" class="control-label col-xs-2">{{servicesubCategory}}</label>
+                                                    <div class="select-arrow-css col-xs-8">
+                                                        <label for="sel1" class="form-control" *ngIf="sercat==1">
+                                                                <select id="sel1" [(ngModel)]="servicesubCategory">
+                                                                    <option value="">--None--</option>
+                                                                 <option *ngFor="#ssc of servicesubCategorylist" [value]="ssc.value">{{ssc.value}}</option>
+                                                                </select>
+                                                            </label>
+                                                    </div>
+                                                    <ul class="dropdown-menu">
+                                                        <li (click)="sercat=1;getServiceCategory()">
+                                                            <a href="#" [class.active]="sercat==0" [class.disabled]="sercat==1"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                                        </li>
+                                                        <li (click)="sercat=0;updatecat()">
+                                                            <a href="#" [class.active]="sercat==1" [class.disabled]="sercat==0"><i class="fa fa-floppy-o" aria-hidden="true"></i></a>
+                                                        </li>
+                                                        <li (click)="sercat=0">
+                                                            <a href="#" [class.active]="sercat==1" [class.disabled]="sercat==0"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="form-group  dropdown dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                                    <label class="control-label col-xs-2">Headcount</label>
+                                                    <label class="control-label col-xs-2">:</label>
+                                                    <label *ngIf="heade==0" class="control-label col-xs-2">{{headCount}}</label>
+                                                    <div class="select-arrow-css col-xs-8" *ngIf="heade==1">
+                                                        <label for="sel1" class="form-control">
+                                                                <select id="sel1" [(ngModel)]="headCount">
+                                    <option value="">--Select--</option>
+                                      <option *ngFor="#hc of headCountlist" [value]="hc.value">{{hc.value}}</option>
+                                                                </select>
+                                                            </label>
+                                                    </div>
+                                                    <ul class="dropdown-menu">
+                                                        <li (click)="heade=1;getGetHeadCount()">
+                                                            <a href="#" [class.active]="heade==0" [class.disabled]="heade==1"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                                        </li>
+                                                        <li (click)="updatehead()">
+                                                            <a href="#" [class.active]="heade==1" [class.disabled]="heade==0"><i class="fa fa-floppy-o" aria-hidden="true"></i></a>
+                                                        </li>
+                                                        <li (click)="heade=0">
+                                                            <a href="#" [class.active]="heade==1" [class.disabled]="heade==0"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <form class="form-horizontal">
+                                                <div class="form-group  dropdown dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                                    <label class="control-label col-xs-2">Target Markets</label>
+                                                    <label class="control-label col-xs-2">:</label>
+                                                    <label *ngIf="tarmkt==0" class="control-label col-xs-2">{{showsel}}</label>
+                                                    <div *ngIf="tarmkt==1" *ngFor="#item of selected">
+                                                        <div class="selected">
+                                                            <span>{{item}}</span>
+                                                            <a (click)="remove(item)">x</a>
+                                                        </div>
+                                                    </div>
+                                                    <input *ngIf="tarmkt==1" type="text" class="form-control col-xs-8" [(ngModel)]=query (keyup)=filter($event) />
+                                                    <div class="suggestions" *ngIf="filteredList.length > 0">
+                                                        <ul *ngFor="#item of filteredList">
+                                                            <li>
+                                                                <a (click)="select(item)">{{item}}</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+
+                                                    <ul class="dropdown-menu">
+                                                        <li (click)="edittarmkt()">
+                                                            <a href="#" [class.active]="tarmkt==0" [class.disabled]="tarmkt==1"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                                        </li>
+                                                        <li (click)="updatetarget()">
+                                                            <a href="#" [class.active]="tarmkt==1" [class.disabled]="tarmkt==0"><i class="fa fa-floppy-o" aria-hidden="true"></i></a>
+                                                        </li>
+                                                        <li (click)="tarmkt=0">
+                                                            <a href="#" [class.active]="tarmkt==1" [class.disabled]="tarmkt==0"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                                        </li>
+                                                    </ul>
+
+
+                                                </div>
+                                                <div class="form-group  dropdown dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                                    <label class="control-label col-xs-2">year of Incorporation</label>
+                                                    <label class="control-label col-xs-2">:</label>
+                                                    <label *ngIf="yrcop==0" class="control-label col-xs-2">{{yearofincorp}}</label>
+                                                    <input *ngIf="yrcop==1" type="text" class="form-control col-xs-8" #year [(ngModel)]="yearofincorp" (keypress)="eventHandler($event,year.value)"
+                                                    />
+
+
+
+                                                    <ul class="dropdown-menu">
+                                                        <li (click)="yrcop=1">
+                                                            <a href="#" [class.active]="yrcop==0" [class.disabled]="yrcop==1"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                                        </li>
+                                                        <li (click)="updateyearofinco()">
+                                                            <a href="#" [class.active]="yrcop==1" [class.disabled]="yrcop==0"><i class="fa fa-floppy-o" aria-hidden="true"></i></a>
+                                                        </li>
+                                                        <li (click)="yrcop=0">
+                                                            <a href="#" [class.active]="yrcop==1" [class.disabled]="yrcop==0"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                                        </li>
+                                                    </ul>
+
+
+                                                </div>
+                                                <div class="form-group  dropdown dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                                    <label class="control-label col-xs-2">TurnOver</label>
+                                                    <label class="control-label col-xs-2">:</label>
+                                                    <label *ngIf="tovr==0" class="control-label col-xs-2">{{turnvalue}}</label>
+                                                    <div class="col-xs-8" *ngIf="tovr==1">
+                                                        <div class="form-group">
+                                                            <div class="select-arrow-css col-xs-6">
+                                                                <input class="form-control col-xs-6" type="number" [(ngModel)]="tovnum" />
+                                                            </div>
+                                                            <div class="select-arrow-css  col-xs-6">
+                                                                <label for="sel1" class="form-control">
+                                                                        <select id="sel1" [(ngModel)]="tovren">
+                                                                            <option *ngFor="#tov of turnOverlist" [value]="tov.value">{{tov.value}}</option>
+                                                                        </select>
+                                                                    </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <ul class="dropdown-menu">
+                                                        <li (click)="tovr=1;getTurnOver()">
+                                                            <a href="#" [class.active]="tovr==0" [class.disabled]="tovr==1"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                                        </li>
+                                                        <li (click)="updatetov()">
+                                                            <a href="#" [class.active]="tovr==1" [class.disabled]="tovr==0"><i class="fa fa-floppy-o" aria-hidden="true"></i></a>
+                                                        </li>
+                                                        <li (click)="tovr=0">
+                                                            <a href="#" [class.active]="tovr==1" [class.disabled]="tovr==0"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                                        </li>
+                                                    </ul>
+
+
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="add">
+                                    <button class="btn btn-blue-inverse-borderless" data-toggle="collapse" data-parent="#accordion" data-target="#add">+ Add</button>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="headquarters">
+                                    <label class="control-label">Headquarters :</label>
+                                    <div class="panel-group" id="accordion">
+                                        <div class="panel">
+                                            <div id="add" class="panel-collapse collapse">
+                                                <form class="form-horizontal" role="form" [ngFormModel]="addrsForm">
+                                                    <fieldset>
+                                                        <div class="form-group">
+                                                            <label class="col-sm-2 control-label" for="textinput">Company Name</label>
+                                                            <div class="col-sm-10">
+                                                                <input type="text" placeholder="Company Name" class="form-control" [ngFormControl]="addrsForm.controls['addressdescription']"
+                                                                    #addressdescription="ngForm">
+                                                            </div>
+                                                            <error-messages control="addressdescription"></error-messages>
+                                                        </div>
+                                                        <!--  <div class="form-group">
+                                                            <div class="service_radio">
+                                                                <label class="radio-inline">
+                                    <input type="radio" name="Service"  (click)="adrstype=hq.value" #hq [ngFormControl]="addrsForm.controls['branchtype']" value="1"> HeadQuarters </label>
+                                                                <label class="radio-inline">
+                                    <input type="radio" name="Service"  (click)="adrstype=sl.value" #sl  [ngFormControl]="addrsForm.controls['branchtype']" value="0"> Sub-Branch</label>
+                                                                <error-messages control="branchtype"></error-messages>
+                                                                <div class="clearfix"></div>
+                                                            </div>
+                                                        </div>-->
+                                                        <!-- Text input-->
+                                                        <div class="form-group">
+                                                            <label class="col-sm-2 control-label" for="textinput">Line 1</label>
+                                                            <div class="col-sm-10">
+                                                                <input type="text" placeholder="Address Line 1" class="form-control" [ngFormControl]="addrsForm.controls['address1']" #address1="ngForm">
+                                                            </div>
+                                                            <error-messages control="address1"></error-messages>
+                                                        </div>
+                                                        <!-- Text input-->
+                                                        <div class="form-group">
+                                                            <label class="col-sm-2 control-label" for="textinput">Line 2</label>
+                                                            <div class="col-sm-10">
+                                                                <input type="text" placeholder="Address Line 2" class="form-control" [ngFormControl]="addrsForm.controls['address2']" #address2="ngForm">
+                                                            </div>
+                                                            <error-messages control="address2"></error-messages>
+                                                        </div>
+                                                        <!-- Text input-->
+                                                        <div class="form-group">
+                                                            <div class="select-arrow-css">
+                                                                <label for="sel1" class="form-control">
+                    <select id="sel1" [ngFormControl]="addrsForm.controls['country']" #country="ngForm" (change)="getstatelist(country.value)">
+                                   <option value="">--Select Country--</option>
+                                      <option *ngFor="#cl of countrylist" [value]="cl.id">{{cl.value}}</option>
+                                </select></label></div>
+                                                            <error-messages control="country"></error-messages>
+                                                        </div>
+                                                        <!-- Text input-->
+                                                        <div class="form-group">
+                                                            <div class="select-arrow-css">
+                                                                <label for="sel1" class="form-control">
+                   <select id="sel1" [ngFormControl]="addrsForm.controls['state']" #state="ngForm" (change)="getcities(state.value)">
+                                   <option value="">--Select State--</option>
+                                      <option *ngFor="#hs of stateList" [value]="hs.id">{{hs.value}}</option>
+                                </select></label></div>
+                                                            <error-messages control="state"></error-messages>
+                                                        </div>
+                                                        <!-- Text input-->
+                                                        <div class="form-group">
+                                                            <div class="select-arrow-css">
+                                                                <label for="sel1" class="form-control">
+                   <select id="sel1" [ngFormControl]="addrsForm.controls['city']" #city="ngForm">
+                                   <option value="">--Select City--</option>
+                                      <option *ngFor="#hc of citylist" [value]="hc.id">{{hc.value}}</option>
+                                </select></label></div>
+                                                            <error-messages control="city"></error-messages>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <input type="text" [ngFormControl]="addrsForm.controls['zip']" (keypress)="pineventHandler($event,zip.value)" #zip="ngForm"
+                                                                class="form-control" placeholder="ZipCOde">
+                                                            <error-messages control="zip"></error-messages>
+                                                        </div>
+                                                        <!-- Text input-->
+                                                        <div class="form-group">
+                                                            <input type="text" [ngFormControl]="addrsForm.controls['phone1']" (keypress)="pheventHandler($event,phone1.value)" #phone1="ngForm"
+                                                                class="form-control" placeholder="Phone1">
+                                                            <error-messages control="phone1"></error-messages>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <input type="text" [ngFormControl]="addrsForm.controls['phone2']" (keypress)="pheventHandler($event,phone2.value)" #phone2="ngForm"
+                                                                class="form-control" placeholder="Phone2">
+                                                            <error-messages control="phone2"></error-messages>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <input type="text" [ngFormControl]="addrsForm.controls['fax']" (keypress)="pheventHandler($event,fax.value)" #fax="ngForm"
+                                                                class="form-control" placeholder="Fax">
+                                                            <error-messages control="fax"></error-messages>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="col-sm-offset-2 col-sm-10">
+                                                                <div class="pull-right">
+                                                                    <button type="button" class="btn btn-default">Cancel</button>
+                                                                    <button type="button" (click)="addaddress()" [disabled]="!addrsForm.valid" class="btn btn-blue-inverse">Save</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </fieldset>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <form class="form-horizontal" role="form">
+
+                                        <fieldset *ngFor="#add of addressList; #i=index">
+                                            <!-- Text input-->
+                                            <div class="form-group" *ngIf="add.ad_branch_type==1">
+                                                <div class="col-sm-10" *ngIf="adrsev!==i">
+                                                    <address>
+                                                        <strong>{{add.ad_addressdescription}}</strong><br>{{add.ad_name1}},{{add.ad_name2}}
+                                                        <br> {{add.ad_country}},{{add.ad_state}},{{add.ad_city}},{{add.ad_zip}}<br>
+                                                        <abbr title="Telephone">Telephone:</abbr> {{add.ad_phone1}}{{add.ad_phone2}}
+                                                    </address>
+
+
+
+                                                </div>
+                                                <div *ngIf="adrsev==i">
+                                                    <form class="form-horizontal" role="form" [ngFormModel]="addrsForm">
+                                                        <fieldset>
+                                                            <div class="form-group">
+                                                                <label class="col-sm-2 control-label" for="textinput">Company Name</label>
+                                                                <div class="col-sm-10">
+                                                                    <input type="text" placeholder="Company Name" class="form-control" [ngFormControl]="addrsForm.controls['addressdescription']"
+                                                                        #addressdescription="ngForm">
+                                                                </div>
+                                                                <error-messages control="addressdescription"></error-messages>
+                                                            </div>
+                                                            <!--  <div class="form-group">
+                                                            <div class="service_radio">
+                                                                <label class="radio-inline">
+                                    <input type="radio" name="Service"  (click)="adrstype=hq.value" #hq [ngFormControl]="addrsForm.controls['branchtype']" value="1"> HeadQuarters </label>
+                                                                <label class="radio-inline">
+                                    <input type="radio" name="Service"  (click)="adrstype=sl.value" #sl  [ngFormControl]="addrsForm.controls['branchtype']" value="0"> Sub-Branch</label>
+                                                                <error-messages control="branchtype"></error-messages>
+                                                                <div class="clearfix"></div>
+                                                            </div>
+                                                        </div>-->
+                                                            <!-- Text input-->
+                                                            <div class="form-group">
+                                                                <label class="col-sm-2 control-label" for="textinput">Line 1</label>
+                                                                <div class="col-sm-10">
+                                                                    <input type="text" placeholder="Address Line 1" class="form-control" [ngFormControl]="addrsForm.controls['address1']" #address1="ngForm">
+                                                                </div>
+                                                                <error-messages control="address1"></error-messages>
+                                                            </div>
+                                                            <!-- Text input-->
+                                                            <div class="form-group">
+                                                                <label class="col-sm-2 control-label" for="textinput">Line 2</label>
+                                                                <div class="col-sm-10">
+                                                                    <input type="text" placeholder="Address Line 2" class="form-control" [ngFormControl]="addrsForm.controls['address2']" #address2="ngForm">
+                                                                </div>
+                                                                <error-messages control="address2"></error-messages>
+                                                            </div>
+                                                            <!-- Text input-->
+                                                            <div class="form-group">
+                                                                <div class="select-arrow-css">
+                                                                    <label for="sel1" class="form-control">
+                    <select id="sel1" [ngFormControl]="addrsForm.controls['country']" #country="ngForm" (change)="getstatelist(country.value)">
+                                   <option value="">--Select Country--</option>
+                                      <option *ngFor="#cl of countrylist" [value]="cl.id">{{cl.value}}</option>
+                                </select></label></div>
+                                                                <error-messages control="country"></error-messages>
+                                                            </div>
+                                                            <!-- Text input-->
+                                                            <div class="form-group">
+                                                                <div class="select-arrow-css">
+                                                                    <label for="sel1" class="form-control">
+                   <select id="sel1" [ngFormControl]="addrsForm.controls['state']" #state="ngForm" (change)="getcities(state.value)">
+                                   <option value="">--Select State--</option>
+                                      <option *ngFor="#hs of stateList" [value]="hs.id">{{hs.value}}</option>
+                                </select></label></div>
+                                                                <error-messages control="state"></error-messages>
+                                                            </div>
+                                                            <!-- Text input-->
+                                                            <div class="form-group">
+                                                                <div class="select-arrow-css">
+                                                                    <label for="sel1" class="form-control">
+                   <select id="sel1" [ngFormControl]="addrsForm.controls['city']" #city="ngForm">
+                                   <option value="">--Select City--</option>
+                                      <option *ngFor="#hc of citylist" [value]="hc.id">{{hc.value}}</option>
+                                </select></label></div>
+                                                                <error-messages control="city"></error-messages>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <input type="text" [ngFormControl]="addrsForm.controls['zip']" (keypress)="pineventHandler($event,zip.value)" #zip="ngForm"
+                                                                    class="form-control" placeholder="ZipCOde">
+                                                                <error-messages control="zip"></error-messages>
+                                                            </div>
+                                                            <!-- Text input-->
+                                                            <div class="form-group">
+                                                                <input type="text" [ngFormControl]="addrsForm.controls['phone1']" (keypress)="pheventHandler($event,phone1.value)" #phone1="ngForm"
+                                                                    class="form-control" placeholder="Phone1">
+                                                                <error-messages control="phone1"></error-messages>
+                                                            </div>
+
+                                                            <div class="form-group">
+                                                                <input type="text" [ngFormControl]="addrsForm.controls['phone2']" (keypress)="pheventHandler($event,phone2.value)" #phone2="ngForm"
+                                                                    class="form-control" placeholder="Phone2">
+                                                                <error-messages control="phone2"></error-messages>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <input type="text" [ngFormControl]="addrsForm.controls['fax']" (keypress)="pheventHandler($event,fax.value)" #fax="ngForm"
+                                                                    class="form-control" placeholder="Fax">
+                                                                <error-messages control="fax"></error-messages>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <div class="col-sm-offset-2 col-sm-10">
+                                                                    <div class="pull-right">
+                                                                        <button type="button" class="btn btn-default" (click)="adrsev=-1;ngOnInit();">Cancel</button>
+                                                                        <button type="button" (click)="addaddress();adrsev=-1" [disabled]="!addrsForm.valid" class="btn btn-blue-inverse">Save</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </fieldset>
+                                                    </form>
+                                                </div>
+                                                <div class="col-sm-2" [hidden]="adrsev==i">
+                                                    <a href="javascript:void(0)" (click)="deleteaddress(add.ad_sno)"><i class="fa fa-trash" aria-hidden="true" >
+                                                            </i></a>
+                                                    <a href="javascript:void(0)" style="padding-top: 1px;" (click)="editaddrs(add,i)">
+                                                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                                    </a>
+
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                    </form>
+                                    <label class="control-label">Locations :</label>
+                                    <form class="form-horizontal" role="form">
+
+                                        <fieldset *ngFor="#add of addressList; #i=index">
+                                            <!-- Text input-->
+                                            <div class="form-group" *ngIf="add.ad_branch_type==0">
+                                                <div class="col-sm-10" *ngIf="adrsev!==i">
+                                                    <address>
+                                                        <strong>{{add.ad_addressdescription}}</strong><br>{{add.ad_name1}},{{add.ad_name2}}
+                                                        <br> {{add.ad_country}},{{add.ad_state}},{{add.ad_city}},{{add.ad_zip}}<br>
+                                                        <abbr title="Telephone">Telephone:</abbr> {{add.ad_phone1}}{{add.ad_phone2}}
+                                                    </address>
+
+
+
+                                                </div>
+                                                <div *ngIf="adrsev==i">
+                                                    <form class="form-horizontal" role="form" [ngFormModel]="addrsForm">
+                                                        <fieldset>
+                                                            <div class="form-group">
+                                                                <label class="col-sm-2 control-label" for="textinput">Company Name</label>
+                                                                <div class="col-sm-10">
+                                                                    <input type="text" placeholder="Company Name" class="form-control" [ngFormControl]="addrsForm.controls['addressdescription']"
+                                                                        #addressdescription="ngForm">
+                                                                </div>
+                                                                <error-messages control="addressdescription"></error-messages>
+                                                            </div>
+                                                            <!--  <div class="form-group">
+                                                            <div class="service_radio">
+                                                                <label class="radio-inline">
+                                    <input type="radio" name="Service"  (click)="adrstype=hq.value" #hq [ngFormControl]="addrsForm.controls['branchtype']" value="1"> HeadQuarters </label>
+                                                                <label class="radio-inline">
+                                    <input type="radio" name="Service"  (click)="adrstype=sl.value" #sl  [ngFormControl]="addrsForm.controls['branchtype']" value="0"> Sub-Branch</label>
+                                                                <error-messages control="branchtype"></error-messages>
+                                                                <div class="clearfix"></div>
+                                                            </div>
+                                                        </div>-->
+                                                            <!-- Text input-->
+                                                            <div class="form-group">
+                                                                <label class="col-sm-2 control-label" for="textinput">Line 1</label>
+                                                                <div class="col-sm-10">
+                                                                    <input type="text" placeholder="Address Line 1" class="form-control" [ngFormControl]="addrsForm.controls['address1']" #address1="ngForm">
+                                                                </div>
+                                                                <error-messages control="address1"></error-messages>
+                                                            </div>
+                                                            <!-- Text input-->
+                                                            <div class="form-group">
+                                                                <label class="col-sm-2 control-label" for="textinput">Line 2</label>
+                                                                <div class="col-sm-10">
+                                                                    <input type="text" placeholder="Address Line 2" class="form-control" [ngFormControl]="addrsForm.controls['address2']" #address2="ngForm">
+                                                                </div>
+                                                                <error-messages control="address2"></error-messages>
+                                                            </div>
+                                                            <!-- Text input-->
+                                                            <div class="form-group">
+                                                                <div class="select-arrow-css">
+                                                                    <label for="sel1" class="form-control">
+                    <select id="sel1" [ngFormControl]="addrsForm.controls['country']" #country="ngForm" (change)="getstatelist(country.value)">
+                                   <option value="">--Select Country--</option>
+                                      <option *ngFor="#cl of countrylist" [value]="cl.id">{{cl.value}}</option>
+                                </select></label></div>
+                                                                <error-messages control="country"></error-messages>
+                                                            </div>
+                                                            <!-- Text input-->
+                                                            <div class="form-group">
+                                                                <div class="select-arrow-css">
+                                                                    <label for="sel1" class="form-control">
+                   <select id="sel1" [ngFormControl]="addrsForm.controls['state']" #state="ngForm" (change)="getcities(state.value)">
+                                   <option value="">--Select State--</option>
+                                      <option *ngFor="#hs of stateList" [value]="hs.id">{{hs.value}}</option>
+                                </select></label></div>
+                                                                <error-messages control="state"></error-messages>
+                                                            </div>
+                                                            <!-- Text input-->
+                                                            <div class="form-group">
+                                                                <div class="select-arrow-css">
+                                                                    <label for="sel1" class="form-control">
+                   <select id="sel1" [ngFormControl]="addrsForm.controls['city']" #city="ngForm">
+                                   <option value="">--Select City--</option>
+                                      <option *ngFor="#hc of citylist" [value]="hc.id">{{hc.value}}</option>
+                                </select></label></div>
+                                                                <error-messages control="city"></error-messages>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <input type="text" [ngFormControl]="addrsForm.controls['zip']" (keypress)="pineventHandler($event,zip.value)" #zip="ngForm"
+                                                                    class="form-control" placeholder="ZipCOde">
+                                                                <error-messages control="zip"></error-messages>
+                                                            </div>
+                                                            <!-- Text input-->
+                                                            <div class="form-group">
+                                                                <input type="text" [ngFormControl]="addrsForm.controls['phone1']" (keypress)="pheventHandler($event,phone1.value)" #phone1="ngForm"
+                                                                    class="form-control" placeholder="Phone1">
+                                                                <error-messages control="phone1"></error-messages>
+                                                            </div>
+
+                                                            <div class="form-group">
+                                                                <input type="text" [ngFormControl]="addrsForm.controls['phone2']" (keypress)="pheventHandler($event,phone2.value)" #phone2="ngForm"
+                                                                    class="form-control" placeholder="Phone2">
+                                                                <error-messages control="phone2"></error-messages>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <input type="text" [ngFormControl]="addrsForm.controls['fax']" (keypress)="pheventHandler($event,fax.value)" #fax="ngForm"
+                                                                    class="form-control" placeholder="Fax">
+                                                                <error-messages control="fax"></error-messages>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <div class="col-sm-offset-2 col-sm-10">
+                                                                    <div class="pull-right">
+                                                                        <button type="button" class="btn btn-default" (click)="adrsev=-1;ngOnInit();">Cancel</button>
+                                                                        <button type="button" (click)="addaddress();adrsev=-1" [disabled]="!addrsForm.valid" class="btn btn-blue-inverse">Save</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </fieldset>
+                                                    </form>
+                                                </div>
+                                                <div class="col-sm-2" [hidden]="adrsev==i">
+                                                    <a href="javascript:void(0)" (click)="deleteaddress(add.ad_sno)"><i class="fa fa-trash" aria-hidden="true" >
+                                                            </i></a>
+                                                    <a href="javascript:void(0)" style="padding-top: 1px;" (click)="editaddrs(add,i)">
+                                                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                                    </a>
+
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                    </form>
+                                </div>
+                                <div class="add">
+                                    <button class="btn btn-blue-inverse-borderless" data-toggle="collapse" data-parent="#accordion1" data-target="#awards">+ Add</button>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="awards">
+                                    <label class="control-label ">Accreditation & Awards : </label>
+                                    <div class="panel-group" id="accordion1">
+                                        <div class="panel">
+                                            <div id="awards" class="panel-collapse collapse">
+                                                <form class="form-horizontal" role="form" [ngFormModel]="awardsForm">
+                                                    <fieldset>
+                                                        <!-- Text input-->
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label" for="textinput">Title:</label>
+                                                            <div class="col-sm-9">
+                                                                <input placeholder="Title" class="form-control" [ngFormControl]="awardsForm.controls['awardtitle']" #awardtitle="ngForm">
+                                                            </div>
+                                                            <error-messages control="awardtitle"></error-messages>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label" for="textinput">Year Awarded:</label>
+                                                            <div class="col-sm-9">
+                                                                <input placeholder="year" class="form-control" (keypress)="eventHandler($event,awardyear.value)" [ngFormControl]="awardsForm.controls['awardyear']"
+                                                                    #awardyear="ngForm">
+                                                            </div>
+                                                            <error-messages control="awardyear"></error-messages>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label" for="textinput">Accreditation & Awards:</label>
+                                                            <div class="col-sm-9">
+                                                                <textarea placeholder="Description" class="form-control" [ngFormControl]="awardsForm.controls['aw_description']" #aw_description="ngForm"></textarea>
+                                                            </div>
+                                                            <error-messages control="aw_description"></error-messages>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="col-sm-offset-2 col-sm-10">
+                                                                <div class="pull-right">
+                                                                    <button type="button" class="btn btn-default">Cancel</button>
+                                                                    <button type="button" (click)="addaward()" [disabled]="!awardsForm.valid" class="btn btn-blue-inverse">Save</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </fieldset>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <form class="form-horizontal" role="form">
+                                        <fieldset>
+                                            <div class="form-group" *ngFor="#awd of awardsList; #i = index">
+                                                <div class="col-sm-10" *ngIf="editawd!==i">
+                                                    <label class="control-label">{{awd.aw_title}}: <span>({{awd.aw_year}})</span>:</label>
+                                                    <p> {{awd.aw_description}}</p>
+
+                                                </div>
+                                                <div *ngIf="editawd==i">
+                                                    <form class="form-horizontal" role="form">
+                                                        <fieldset>
+                                                            <!-- Text input-->
+                                                            <div class="form-group">
+                                                                <label class="col-sm-3 control-label" for="textinput">Title:</label>
+                                                                <div class="col-sm-9">
+                                                                    <input placeholder="Title" class="form-control" [(ngModel)]="awd.aw_title">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="col-sm-3 control-label" for="textinput">Year Awarded:</label>
+                                                                <div class="col-sm-9">
+                                                                    <input placeholder="year" class="form-control" [(ngModel)]="awd.aw_year" (keypress)="eventHandler($event,awardyear.value)">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="col-sm-3 control-label" for="textinput">Description:</label>
+                                                                <div class="col-sm-9">
+                                                                    <textarea placeholder="Description" #aw_description [(ngModel)]="awd.aw_description" class="form-control"></textarea>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <div class="col-sm-offset-2 col-sm-10">
+                                                                    <div class="pull-right">
+                                                                        <button type="button" class="btn btn-default" (click)="editawd=-1">Cancel</button>
+                                                                        <button type="button" (click)="editawd=-1" [disabled]="awd.aw_title==undefined||awd.aw_description==undefined||awd.aw_year==undefined"
+                                                                            class="btn btn-blue-inverse">Save</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </fieldset>
+                                                    </form>
+                                                </div>
+                                                <div class="col-sm-2">
+                                                    <a href="javascript:void(0)" (click)="delaward(awd.aw_sno);"><i class="fa fa-trash" aria-hidden="true">
+                                                            </i></a>
+                                                    <a href="javascript:void(0)" style="padding-top: 1px;" (click)="editawds(i,awd);">
+                                                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                                    </a>
+
+
+                                                </div>
+                                            </div>
+
+
+                                        </fieldset>
+                                    </form>
+                                </div>
+                                <div class="clients">
+                                    <label class="control-label ">Clients : </label>
+                                    <div class="add">
+                                        <button class="btn btn-blue-inverse-borderless" data-toggle="modal" data-target="#addclient">+ Add</button>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="client-logo">
+                                        <a href="javascript:void(0)" *ngFor="#cli of clientsList"> <img src="{{cli.cl_logo}}" alt="" />
+                                            <button type="button" class="btn-danger" (click)="deleteclient(cli.cl_sno)">X</button></a>
+                                        <a *ngIf="clientsList && clientsList.length <1">No Clinets Found</a>
+
+                                    </div>
+                                </div>
+                                <div class="dname">
+                                    <form class="form-horizontal" role="form">
+                                        <fieldset>
+                                            <!-- Text input-->
+                                            <div class="form-group">
+                                                <div class="col-sm-10">
+                                                    <div class="form-group">
+
+                                                        <label class="control-label col-sm-3">Website-url : </label>
+                                                        <a *ngIf="updateurl==0" class="col-sm-9" href="{{url}}">{{url||'Not Specified'}}</a>
+                                                        <input *ngIf="updateurl==1" type="text" class="form-control col-sm-9" [(ngModel)]="url">
+                                                        <a
+                                                            *ngIf="updateurl==1" href="javascript:void(0)" (click)="urlupdate()">Save</a>
+                                                            <a *ngIf="updateurl==1" href="javascript:void(0)" (click)="updateurl=0">Cancel</a>
+
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-2 editt">
+                                                    <!--<a href=""><i class="fa fa-trash" aria-hidden="true">
+                                                            </i></a>-->
+                                                    <a href="javascript:void(0)" style="padding-top: 1px;" (click)="updateurl=1">
+                                                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                                    </a>
+                                                </div>
+
+                                            </div>
+                                        </fieldset>
+                                    </form>
+                                </div>
+                                <div class="social-media">
+                                    <a href="javascript:void(0)" (click)="linke=0"> <img src="html/build/images/social/s1.png" alt="" /></a>
+                                    <a href="javascript:void(0)" (click)="linke=1"> <img src="html/build/images/social/s2.png" alt="" /></a>
+                                    <a href="javascript:void(0)" (click)="linke=2"> <img src="html/build/images/social/s3.png" alt="" /> </a>
+                                    <a href="javascript:void(0)" (click)="linke=3"><img src="html/build/images/social/s4.png" alt="" /></a>
+                                    <a href="javascript:void(0)" (click)="linke=4"> <img src="html/build/images/social/s5.png" alt="" /></a>
+                                    <div *ngIf="linke==0"><input type="text" [(ngModel)]="linkedin"><a href="javascript:void(0)" (click)="linke=-1">cancel</a>
+                                        <a href="javascript:void(0)" (click)="social(linke)">save</a>
+                                    </div>
+                                    <div *ngIf="linke==1"><input type="text" [(ngModel)]="google"><a href="javascript:void(0)" (click)="linke=-1">cancel</a>
+                                        <a href="javascript:void(0)" (click)="social(linke)">save</a>
+                                    </div>
+                                    <div *ngIf="linke==2"><input type="text" [(ngModel)]="twitter"><a href="javascript:void(0)" (click)="linke=-1">cancel</a>
+                                        <a href="javascript:void(0)" (click)="social(linke)">save</a>
+                                    </div>
+                                    <div *ngIf="linke==3"> <input type="text" [(ngModel)]="faceb"><a href="javascript:void(0)" (click)="linke=-1">cancel</a>
+                                        <a href="javascript:void(0)" (click)="social(linke)">save</a>
+                                    </div>
+                                    <div *ngIf="linke==4"><input type="text" [(ngModel)]="yout"><a href="javascript:void(0)" (click)="linke=-1">cancel</a>
+                                        <a href="javascript:void(0)" (click)="social(linke)">save</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="d2">
+                            <div class="block1">
+                                <div class="blocks" *ngFor="#pof of portfolioList">
+                                    <div class="row margin-zero padding-zero">
+                                        <div class="col-md-4 margin-zero padding-zero"> <img src="{{pof.pf_image}}" alt="" /> </div>
+                                        <div class="col-md-8 margin-zero padding-zero">
+                                            <label class="control-label ">{{pof.pf_title}}</label>
+                                        </div>
+                                    </div>
+                                    <div class="edit-icons">
+                                        <div class="iconss">
+                                            <a href="javascript:void(0)" data-toggle="modal" data-target="#portfolio-popup" (click)="viewpof=true;selectedpof=pof;"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                            <a href="javascript:void(0)" data-toggle="modal" data-target="#portfolio-popup" (click)="viewpof=true;selectedpof=pof;editPort()"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                            <a href="javascript:void(0)" (click)="deletePortofolio(pof.pf_sno);"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="blocks" *ngIf="portfolioList && portfolioList.length<1">
+                                    <div class="row margin-zero padding-zero">
+                                        <div class="col-md-4 margin-zero padding-zero"> </div>
+                                        <div class="col-md-8 margin-zero padding-zero">
+                                            <label class="control-label ">Not found</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="block2">
+                                <div class="header">
+                                    <div class="add">
+                                        <button class="btn btn-blue-inverse-borderless w-h-auto pull-right" data-toggle="modal" data-target="#addtestim">+ Add</button>
+                                        <span
+                                            class="clearfix"></span>
+                                            <h4>Testimonials </h4>
+                                    </div>
+
+                                </div>
+                                <div class="testimonials-block" *ngFor="#tm of testimonials">
+                                    <div class="tblock">
+                                        <div class="row margin-zero padding-zero">
+                                            <div class="col-md-3 margin-zero padding-zero"> <img [src]="tm.tm_profilepic" /> </div>
+                                            <div class="col-md-9 margin-zero padding-zero">
+                                                <p>{{tm.tm_comments}}</p>
+                                                <p class="by">- {{tm.tm_clientname}}</p>
+                                                <p class="clearfix"></p>
+                                                <div class="accept">
+                                                    <i class="fa fa-check" aria-hidden="true"></i>
+                                                    <i class="fa fa-times" aria-hidden="true" (click)="deeltestim(tm.tm_sno)"></i>                                                    <i class="fa fa-trash" aria-hidden="true" (click)="deeltestim(tm.tm_sno)"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Start Portofiolio-->
+            <div class="modal fade portfolio-popup" id="portfolio-popup" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content" *ngIf="viewpof==false">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Add Portofolio</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-horizontal" [ngFormModel]="portForm">
+                                <div class="form-group">
+                                    <label class="control-label col-xs-4" for="inputProjectTitle">Title:</label>
+                                    <div class="col-xs-8">
+                                        <input type="text" class="form-control" id="inputProjectTitle" [(ngModel)]="selectedpof.pf_title" placeholder="Title" [ngFormControl]="portForm.controls['portfoliotitle']"
+                                            #portfoliotitle="ngForm"> </div>
+                                    <error-messages control="portfoliotitle"></error-messages>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-xs-4" for="inputProjectTitle">Description:</label>
+                                    <div class="col-xs-8">
+                                        <textarea type="text" class="form-control" id="inputProjectTitle" [(ngModel)]="selectedpof.pf_description" placeholder="Title"
+                                            [ngFormControl]="portForm.controls['portfoliodescription']" #portfoliodescription="ngForm"></textarea></div>
+                                    <error-messages control="portfoliodescription"></error-messages>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-xs-4" for="inputProjectTitle">Image:</label>
+                                    <div class="col-xs-8">
+                                        <img [src]="poimgSrc" [hidden]="poimgSrc==undefined">
+                                        <input type="file" id="f" accept="image/*" [ngFormControl]="portForm.controls['portfolioimage']" #portfolioimage="ngForm"
+                                            (change)="getfile($event,'port')">
+                                    </div>
+                                    <error-messages control="portfolioimage"></error-messages>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-xs-4" for="inputProjectTitle">Url:</label>
+                                    <div class="col-xs-8">
+                                        <input type="text" class="form-control" id="inputProjectTitle" [(ngModel)]="selectedpof.pf_domain" placeholder="Url" [ngFormControl]="portForm.controls['portfoliodomain']"
+                                            #portfoliodomain="ngForm"> </div>
+                                    <error-messages control="portfoliodomain"></error-messages>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn" data-dismiss="modal">Cancel</button>
+                            <button type="submit" (click)="postPortofolio()" [disabled]="(!portForm.valid)||poimgSrc==undefined" class="btn btn-blue-inverse"
+                                data-dismiss="modal">Reuest</button>
+                        </div>
+                    </div>
+                    <div class="modal-content" *ngIf="viewpof==true">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">{{selectedpof.pf_title}}</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="control-label col-xs-4" for="inputProjectTitle">Logo:</label>
+                                    <div class="col-xs-8">
+                                        <img src="http://mintapis.herokuapp.com/data/portfolio/{{selectedpof.pf_image}}" [hidden]="selectedpof.pf_image==undefined">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-xs-4" for="inputProjectTitle">Description:</label>
+                                    <div class="col-xs-8">
+                                        {{selectedpof.pf_description}}
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label col-xs-4" for="inputProjectTitle">Url:</label>
+                                    <div class="col-xs-8">
+                                        {{selectedpof.pf_domain}}
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn" data-dismiss="modal">Ok</button>
+                            <button type="button" class="btn" (click)="editPort()">Edit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--End Portofolio-->
+            <!--Testimonial popup-->
+            <div class="modal fade portfolio-popup" id="addtestim" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Add Description</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-horizontal" [ngFormModel]="testimForm">
+                                <div class="form-group">
+                                    <label class="control-label col-xs-4" for="inputProjectTitle">Client Name:</label>
+                                    <div class="col-xs-8">
+                                        <input type="text" class="form-control" id="inputProjectTitle" placeholder="Name Of Client" [ngFormControl]="testimForm.controls['clientname']"
+                                            #clientname="ngForm"> </div>
+                                    <error-messages control="clientname"></error-messages>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-xs-4" for="inputProjectTitle">Email:</label>
+                                    <div class="col-xs-8">
+                                        <input type="text" class="form-control" id="inputProjectTitle" placeholder="Email" [ngFormControl]="testimForm.controls['clientemail']"
+                                            #clientemail="ngForm"> </div>
+                                    <error-messages control="clientemail"></error-messages>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn" data-dismiss="modal">Cancel</button>
+                            <button type="submit" (click)="requestTestim()" [disabled]="!testimForm.valid" class="btn btn-blue-inverse" data-dismiss="modal">Reuest</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--End Testimonial popup-->
+            <!--ADD CLinet Modal-->
+<div id="addclient" class="modal fade portfolio-popup" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Add Clients</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" [ngFormModel]="clientForm">
+                    <div class="form-group">
+                        <label class="control-label col-xs-4" for="inputProjectTitle">Client Name:</label>
+                        <div class="col-xs-8">
+                            <input type="text" class="form-control" id="inputProjectTitle" placeholder="Name Of Client" [ngFormControl]="clientForm.controls['clientname']"
+                                #clientname="ngForm"> </div>
+                        <error-messages control="clientname"></error-messages>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-xs-4" for="inputProjectTitle">Email:</label>
+                        <div class="col-xs-8">
+                            <img [src]="climgSrc" [hidden]="climgSrc==undefined">
+                            <input type="file" id="f" accept="image/*" [ngFormControl]="clientForm.controls['clientlogo']" #clientemail="ngForm" (change)="getfile($event,'client')">
+                        </div>
+                        <error-messages control="clientlogo"></error-messages>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn" data-dismiss="modal">Cancel</button>
+                <button type="submit" (click)="addclient()" [disabled]="(!clientForm.valid)||climgSrc==undefined" class="btn btn-blue-inverse"
+                    data-dismiss="modal">Reuest</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End Clinmnt Model-->
+        </div>
+    </div>
+</div>
+
+

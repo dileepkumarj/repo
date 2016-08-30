@@ -1,0 +1,73 @@
+<div class="main-header">
+    <div class="requirement">
+        <div class="banner">
+            <div class="row">
+                <div class=" col-md-12 col-sm-12 col-lg-12">
+                    <a class="img_section"> <img src="html/build/images/adobe.jpg">
+                        <div class="company-profile">
+                            <div>
+                                <div> <img src="html/build/images/adobe-logo.jpg"> </div>
+                                <div>
+                                    <h4>Adobe</h4>
+                                    <h6>Computer Software Company</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="margin-top: 52px;">
+        <header class="navbar-fixed-top">
+            <!--header-->
+            <nav class="navbar navbar-default ">
+                <div class="container">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed burger-button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                            aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>                        <a class="navbar-brand jura-font" href="javascript:void(0)">Project Mint</a> </div>
+                    <!-- /.navbar-collapse -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-right icon-padding">
+                            <li><a href="#">Login</a> </li>
+                            <li><a href="#">Register</a> </li>
+
+                            <!--                <li><a href="#"><i class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></i></a> </li>-->
+                        </ul>
+                    </div>
+                </div>
+                <!-- /.container-fluid -->
+            </nav>
+            <!--/header-->
+            <div class="container">
+            <div class="form_info">
+                <div class="header">
+                    <h3>
+                        Testimonial's
+                    </h3>
+                </div>
+                <div class="body">
+                    <form [ngFormModel]="passwordForm" (ngSubmit)="submit()">
+                        <div class="form-group">
+                            <textarea id="password1" ngControl="comment" #comment="ngForm" type="text" placeholder="Your Comments"></textarea>
+                        </div>
+                        <error-messages control="comment"></error-messages>
+
+                        <div class="form-group">
+                            <img [src]="imgSrc" [hidden]="imgSrc==undefined">
+                            <input type="file" id="f" accept="image/*" ngControl="profilepic" (change)="getfile($event)">
+                            <error-messages control="profilepic"></error-messages>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" [disabled]="(!passwordForm.valid)||imgSrc==undefined" class="btn btn-blue pull-right">Post</button>
+                            <div class="clearfix"></div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        </header>
+
+    </div>
+</div>

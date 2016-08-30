@@ -1,0 +1,176 @@
+<div>
+    <headsec></headsec>
+    <div class="connections">
+        <div class="container">
+            <header> <a data-toggle="pill" href="#my-connections" [class.active]="showcon==0" (click)="showcon=0">My Connections</a>                <a data-toggle="pill" [class.active]="showcon==1" (click)="showcon=1" href="#followers">Followers</a><a data-toggle="pill"
+                    [class.active]="showcon==2" (click)="showcon=2" href="#following">Following</a></header>
+            <div class="tab-content">
+                <div id="my-connections" class="tab-pane fade in active">
+                    <div class="row">
+                        <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+                            <div class="d1">
+                                <div class="header">
+                                    <h4>Connections {{connectionList?.length||0}}</h4>
+                                </div>
+                                <div class="clearfix"></div>
+                                <div *ngIf="connectionList?.length==undefiend">
+                                    <h3>No Connections in your Network</h3>
+                                </div>
+                                <div class="body" *ngFor="#cl of connectionList">
+                                    <div class="content">
+                                        <div class="row">
+                                            <div class="col-sm-2 col-md-2 col-lg-2"> <img [src]="cl.og_logo" data-pin-nopin="true" > </div>
+                                            <div class="col-sm-10 col-md-10 col-lg-10">
+                                                <div class="desc">
+                                                    <h5>{{cl.og_name}}</h5>
+                                                    <h6>{{cl.og_category}}:{{cl.og_subcategory}}</h6>
+                                                    <h6>{{cl.og_city}}</h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="body-btn ">
+                                        <button class="btn btn-blue-border pull-right" (click)="deleteconnection(Orgid,cl.og_id)"><i class="fa fa-times-circle fa-lg" aria-hidden="true"></i>Disconnect</button>
+                                        <button class="btn btn-blue-border pull-right "><i class="fa fa-envelope right-icons" aria-hidden="true"></i>Message</button>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                            <div class="recommended-addon">
+                                <header>
+                                    <h4>Recommended Companies</h4>
+                                </header>
+                                <div class="d2">
+                                    <div class="reccom" *ngFor="#rec of recommendations" >
+                                        <div class="row">
+                                            <div class="col-md-2">
+                                                <div class="reccom-img"> <img src="html/build/images/bosch.jpg"> </div>
+                                            </div>
+                                            <div class="col-md-10">
+                                                <div class="reccom-content">
+                                                    <h5>{{rec.name}}</h5>
+                                                    <h6>CEO</h6>
+                                                    <h6>Software company</h6>
+                                                    <div class="footer btn-underline">
+                                                        <button class="btn btn-sm btn-blue" (click)="connectionpop(rec)" data-target=".connect-btn-popup" data-toggle="modal"> Connect </button>                                                        
+                                                        <a href="" class="btn btn-sm"> Skip </a>
+                                                        <div class="clearfix"> </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                   
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                            <div class="ads-layout">
+                                <div class="d3"> <img src="html/build/images/sample-ads.png"> </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="followers" class="tab-pane fade">
+                    <div class="followers">
+                        <ul>
+                            <li *ngIf="followersList?.length==undefiend">
+                                <div class="body">
+                                    <div class="row">
+                                        <div class="col-sm-10 col-md-10 col-lg-10">
+                                            <div class="desc">
+                                                <h3>No Connections in your Network</h3>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li *ngFor="#fl of followersList">
+                                <div class="body">
+                                    <div class="row">
+                                        <div class="col-sm-2 col-md-2 col-lg-2"> <img [src]="fl.og_logo" data-pin-nopin="true"> </div>
+                                        <div class="col-sm-10 col-md-10 col-lg-10">
+                                            <div class="desc">
+                                                <h5>{{fl.og_name}}</h5>
+                                                <h6>{{fl.og_category}}:{{fl.og_subcategory}}</h6>
+                                                <h6>{{fl.og_city}}</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button *ngIf="fl.og_status==0" (click)="connect(Orgid,fl.og_id)" class="btn btn-blue-hallow">Connect</button>
+                                    <button *ngIf="fl.og_status==1" class="btn btn-blue-hallow" (click)="confirm(Orgid,fl.og_id)">Confirm Request</button>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="clearfix"> </div>
+                    </div>
+                </div>
+                <div id="following" class="tab-pane fade">
+                    <div class="followers">
+                        <ul>
+                            <li *ngIf="followingList?.length==undefiend">
+                                <div class="body">
+                                    <div class="row">
+                                        <div class="col-sm-10 col-md-10 col-lg-10">
+                                            <div class="desc">
+                                                <h3>No Connections in your Network</h3>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li *ngFor="#fll of followingList">
+                                <div class="body">
+                                    <div class="row">
+                                        <div class="col-sm-2 col-md-2 col-lg-2"> <img [src]="fll.og_logo" data-pin-nopin="true"> </div>
+                                        <div class="col-sm-10 col-md-10 col-lg-10">
+                                            <div class="desc">
+                                                <h5>{{fll.og_name}}</h5>
+                                                <h6>{{fll.og_category}}:{{fll.og_subcategory}}</h6>
+                                                <h6>{{fll.og_city}}</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button *ngIf="fll.og_status==0" (click)="connect(Orgid,fll.og_id)" class="btn btn-blue-hallow">Connect</button>
+                                    <button *ngIf="fll.og_status==1" class="btn btn-blue-hallow">+Request Sent</button>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="clearfix"> </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade connect-btn-popup" role="dialog">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button class="close" data-dismiss="modal" type="button"> × </button>
+                    <h4 class="modal-title">
+                        Connect
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-2 img-div">
+                            <img data-pin-nopin="true" src="html/build/images/bosch.jpg">
+                        </div>
+                        <div class="col-md-10">
+                            <h4>{{selected.name}}</h4>
+                        </div>
+                    </div>
+                    <textarea class="form-control">{{selected.message}}</textarea>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn" data-dismiss="modal" type="button"> Cancel </button>
+                    <button class="btn btn-blue-inverse" (click)="connect(selected)" data-dismiss="modal" type="button"> Send Invitation </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

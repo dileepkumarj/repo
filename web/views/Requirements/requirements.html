@@ -1,0 +1,297 @@
+<div>
+    <headsec></headsec>
+    <header class=" main-header navbar-fixed-top">
+
+        <!--header-->
+        <nav class="navbar navbar-default ">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed burger-button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                        aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>                    <a class="navbar-brand jura-font" href="/#!/">Project Mint</a> </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right icon-padding">
+                        <li><a href="#"><i class="fa fa-envelope right-icons" aria-hidden="true"></i></a> </li>
+                        <li><a href="#"><i class="fa fa-bell-o right-icons" aria-hidden="true"></i></a> </li>
+                        <li>
+                            <a href="#" class="nopadding">
+                                <div class="icons-block relative">
+                                    <div class="user-pic"> <img src="http://www.positivemomsmagazine.com/wp-content/uploads/avatars/1/abd14ed302c20085061ea0209260c712-bpthumb.png"
+                                            width="auto" height="auto" class="user-image" alt=""> </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">View Profile</a> </li>
+                                <li><a href="#">Manage Account</a> </li>
+                                <li><a href="#">Invite a friend</a> </li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="/auth/signout">Log out</a> </li>
+                            </ul>
+                        </li>
+                        <!--                <li><a href="#"><i class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></i></a> </li>-->
+                    </ul>
+                    <form class="navbar-form" id="search" role="search">
+                        <div class="form-group">
+                            <div class="inner-addon right-addon"> <i class="glyphicon glyphicon-search"></i>
+                                <input id="search-box" type="text" class="form-control" placeholder="Search"> </div>
+                        </div>
+                        <!-- <button type="submit" class="btn btn-default">Submit</button> -->
+                    </form>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+        </nav>
+        <!--/header-->
+        <!--sub-header-->
+        <div id="sub-header" class="">
+            <div class="row">
+                <div class="col-md-12">
+                    <section class="sub-header">
+                        <div class="mt-icons">
+                            <ul class="menu-icons">
+                                <li> <a href="" class="active"><span class="home"></span>
+                    <h4>Home</h4></a> </li>
+                                <li> <a href=""><span class="dashboard"></span>
+                    <h4>Dashboard</h4></a> </li>
+                                <li> <a href=""><span class="connections"></span>
+                    <h4>Connection</h4></a> </li>
+                                <li> <a href=""><span class="myprofile"></span>
+                    <h4>My Profile</h4></a> </li>
+                                <li> <a href=""><span class="activities"></span>
+                    <h4>Activities</h4></a> </li>
+                                <li> <a href=""><span class="subscriptions"></span>
+                    <h4>Subscriptions</h4></a> </li>
+                            </ul>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+        <!--/header-->
+    </header>
+    <div class="requirement">
+        <div class="banner">
+            <div class="row">
+                <div class=" col-md-12 col-sm-12 col-lg-12">
+                    <a class="img_section"> <img src="html/build/images/adobe.jpg">
+                        <div class="company-profile">
+                            <div>
+                                <div> <img src="html/build/images/adobe-logo.jpg"> </div>
+                                <div>
+                                    <h4>Adobe</h4>
+                                    <h6>Computer Software Company</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="child-header">
+                        <ul>
+                            <li><a>Organization</a></li>
+                            <li><a>Project Portfolio</a></li>
+                            <li><a>Your Information</a></li>
+                            <li><a>Feeds</a></li>
+                            <li class="active"><a>Requirements</a></li>
+                            <li><a>Administration Settings</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+
+            <div class="row">
+                <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+                    <header> <a class="active">Your Requirements</a> <a>Responded Requirements</a> </header>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7"  >
+                    <div class="requirement-body" *ngFor="#rel of requirementList">
+                        <div class="header">
+                            <h3><div>{{rel.rq_title}}</div>
+                                <div class="dropdown">
+                                    <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">Set status
+  <span class="caret"></span></button>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">HTML</a></li>
+                                        <li><a href="#">CSS</a></li>
+                                        <li><a href="#">JavaScript</a></li>
+                                    </ul>
+                                </div>
+                                <div class="clearfix"></div>
+
+                                <a href="#" class="a1">Check Venders</a>
+                                <p>-posted on {{setDate(rel.rq_date) | date:"MM/dd/yy"}}</p>
+                            </h3>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="content">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <form class="form-horizontal">
+                                        <div class="form-group">
+                                            <label for="inputEmail" class="control-label col-xs-2">Service</label>
+                                            <label for="inputEmail" class="control-label col-xs-2">:</label>
+                                            <label for="inputEmail" class="control-label col-xs-2">{{rel.rq_service_category}}-{{rel.rq_service_subcategory}}</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputEmail" class="control-label col-xs-2">Domain</label>
+                                            <label for="inputEmail" class="control-label col-xs-2">:</label>
+                                            <label for="inputEmail" class="control-label col-xs-2">{{rel.rq_domain}}</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputEmail" class="control-label col-xs-2">Budget</label>
+                                            <label for="inputEmail" class="control-label col-xs-2">:</label>
+                                            <label for="inputEmail" class="control-label col-xs-2">{{rel.rq_budget}}</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputEmail" class="control-label col-xs-2">Duration</label>
+                                            <label for="inputEmail" class="control-label col-xs-2">:</label>
+                                            <label for="inputEmail" class="control-label col-xs-2">{{rel.rq_duration}}</label>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="col-md-6">
+                                    <form class="form-horizontal">
+                                        <div class="form-group">
+                                            <label for="inputEmail" class="control-label col-xs-2">Contact Name</label>
+                                            <label for="inputEmail" class="control-label col-xs-2">:</label>
+                                            <label for="inputEmail" class="control-label col-xs-2">{{rel.rq_contact_name}}</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputEmail" class="control-label col-xs-2">Contact E-mail</label>
+                                            <label for="inputEmail" class="control-label col-xs-2">:</label>
+                                            <label for="inputEmail" class="control-label col-xs-2">{{rel.rq_contact_email}}</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputEmail" class="control-label col-xs-2">Contact Number</label>
+                                            <label for="inputEmail" class="control-label col-xs-2">:</label>
+                                            <label for="inputEmail" class="control-label col-xs-2">{{rel.rq_contact_number}}</label>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content-desc">
+                            <h3>
+                                Description:
+                            </h3>
+                            <p>{{rel.rq_duration_type || 'not found'}}</p>
+                        </div>
+                        <div class="footer"> <a href="#">View\Edit Details</a> <a href="#" class="btn">Responses 15</a> </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                    <div class="suggestion">
+                        <div class="header">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <button class="btn active">Responses 15</button>
+                                </div>
+                                <div class="col-md-5">
+                                    <button class="btn"> Shortlisted 05</button>
+                                </div>
+                                <div class="col-md-2"> </div>
+                            </div>
+                        </div>
+                        <div class="content">
+                            <div class="content-div">
+                                <div class="row">
+                                    <div class="col-md-3"> <img src="html/build/images/square.PNG"> </div>
+                                    <div class="col-md-9">
+                                        <h5>XYZ has shown interest in this requirement message.
+
+                                            <div class="more pull-right">
+                                                <i class="fa fa-caret-down" aria-hidden="true"></i>
+                                            </div>
+                                        </h5>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="content-div">
+                                <div class="row">
+                                    <div class="col-md-3"> <img src="html/build/images/square.PNG"> </div>
+                                    <div class="col-md-9">
+                                        <h5>XYZ has shown interest in this requirement message.
+
+                                            <div class="more pull-right">
+                                                <i class="fa fa-caret-down" aria-hidden="true"></i>
+                                            </div>
+                                        </h5>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="content-div">
+                                <div class="row">
+                                    <div class="col-md-3"> <img src="html/build/images/square.PNG"> </div>
+                                    <div class="col-md-9">
+                                        <h5>XYZ has shown interest in this requirement message.
+
+                                            <div class="more pull-right">
+                                                <i class="fa fa-caret-down" aria-hidden="true"></i>
+                                            </div>
+                                        </h5>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="content-div">
+                                <div class="row">
+                                    <div class="col-md-3"> <img src="html/build/images/square.PNG"> </div>
+                                    <div class="col-md-9">
+                                        <h5>XYZ has shown interest in this requirement message.
+
+                                            <div class="more pull-right">
+                                                <i class="fa fa-caret-down" aria-hidden="true"></i>
+                                            </div>
+                                        </h5>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="content-div">
+                                <div class="row">
+                                    <div class="col-md-3"> <img src="html/build/images/square.PNG"> </div>
+                                    <div class="col-md-9">
+                                        <h5>XYZ has shown interest in this requirement message.
+
+                                            <div class="more pull-right">
+                                                <i class="fa fa-caret-down" aria-hidden="true"></i>
+                                            </div>
+                                        </h5>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="content-div">
+                                <div class="row">
+                                    <div class="col-md-3"> <img src="html/build/images/square.PNG"> </div>
+                                    <div class="col-md-9">
+                                        <h5>XYZ has shown interest in this requirement message.
+
+                                            <div class="more pull-right">
+                                                <i class="fa fa-caret-down" aria-hidden="true"></i>
+                                            </div>
+                                        </h5>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>
+            </div>
+        </div>
+    </div>
+</div>

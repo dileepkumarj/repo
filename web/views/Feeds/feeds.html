@@ -1,0 +1,75 @@
+<div>
+    <headsec></headsec>
+    <div class="container">
+        <div class="my-feeds">
+            <div class="recent_feeds_activities">
+                <div class="page">
+                    <!-- feeds -->
+                    <section class="main-section">
+                        <div class="row">
+                            <div class="col-sm-10 col-md-10 col-lg-10">
+                                <div class="page-headerr">
+                                    <div class="row">
+                                        <div class="col-md-1">
+                                            <button class="btn btn-dotted-blue">Post Feed</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="page-body" *ngFor="#fi of feedsList">
+                                    <div class="header"> <img src="html/build/images/avatar.png"> <span>You have posted</span> <span class="pull-right">Posted On <span>{{setDate(fi.fd_posted_date) | date:"MM/dd/yy"}}</span></span>
+                                    </div>
+                                    <div class="d1">
+                                        <div class="content-body">
+                                            <h4>{{fi.fd_title}} </h4>
+                                            <div class="content-img-div"> <img [src]="fi.fd_image" /> </div>
+                                            <div class="contentt">
+                                                <p>{{fi.fd_description}}</p>
+                                            </div>
+                                        </div>
+                                        <footer>
+                                            <div class="like-comments"> <span>
+                                <span class="fa fa-thumbs-o-up" aria-hidden="true">
+                                    <span>like</span> <span>53</span> </span>
+                                                </span> <span>
+                                <span class="fa fa-commenting" aria-hidden="true">
+                                <span>comments</span> <span>23</span> </span>
+                                                </span>
+                                                <button class="btn btn-blue pull-right active">Edit</button>
+                                                <button class="btn btn-blue pull-right" data-toggle="modal" data-target=".delete-popup">Delete</button>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </footer>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-2 col-md-2 col-lg-2">
+                                <div class="page-headerr"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ads </div>
+                                <div class="page-body bg-transparent">
+                                    <div class="d3"> <img src="html/build/images/sample-ads.png"> </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <!-- Modal -->
+                <div class="modal fade delete-popup" role="dialog">
+                    <div class="modal-dialog modal-sm">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Delete Post</h4>
+                            </div>
+                            <div class="modal-body">
+                                <p>Are you sure you want to delete your Post ?</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-red" data-dismiss="modal">Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

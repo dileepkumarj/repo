@@ -1,0 +1,153 @@
+<div style="margin-top: 52px;">
+    <header class="navbar-fixed-top">
+        <!--header-->
+        <nav class="navbar navbar-default ">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed burger-button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button> <a class="navbar-brand jura-font" href="/#!/">Project Mint</a> </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+        </nav>
+        <!--/header-->
+    </header>
+    <div class="container">
+        <div class="form_info">
+            <div class="header">
+                <h3>
+Lorum epsum
+                        </h3> </div>
+            <div class="body">
+                <form [ngFormModel]="registerform" (ngSubmit)="submit()">
+                    <div class="form-group">
+                        <label for="inputPassword">Head Count<span></span></label>
+                        <div class="select-arrow-css">
+                            <label for="sel1" class="form-control">
+                                <select id="sel1" [ngFormControl]="registerform.controls['headcount']" #headcount="ngForm">
+                                    <option value="">--Select--</option>
+                                      <option *ngFor="#hc of headCountlist" [value]="hc.id">{{hc.value}}</option>
+                                </select>
+                                <error-messages control="headcount"></error-messages>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword">Turn Over<span></span></label>
+                        <div class="select-arrow-css">
+                            <label for="sel1" class="form-control">
+                                <select id="sel1" [ngFormControl]="registerform.controls['turnover']" #turnover="ngForm">
+                                   <option value="">--Select--</option>
+                                      <option *ngFor="#tov of turnOverlist" [value]="tov.id">{{tov.value}}</option>
+                                </select>
+                            </label>
+                            <error-messages control="turnover"></error-messages>
+                        </div>
+                    </div>
+                     <div class="form-group">
+                        <label>Headquarters<span>*</span></label>
+                        <div class="clearfix"></div>
+                        <input type="text"  [ngFormControl]="registerform.controls['hqdescription']" #hqdescription="ngForm" class="form-control" placeholder="Description"> </div>
+                   <error-messages control="hqdescription"></error-messages>
+                    <div class="form-group">
+                    <input type="text"  [ngFormControl]="registerform.controls['hqaddress1']" #hqaddress1="ngForm" class="form-control" placeholder="AddressLine1"> </div>
+                   <error-messages control="hqaddress1"></error-messages>
+                    <div class="form-group">
+                   <input type="text"  [ngFormControl]="registerform.controls['hqaddress2']" #hqaddress2="ngForm" class="form-control" placeholder="AddressLine2"> </div>
+                   <error-messages control="hqaddress2"></error-messages>
+                    <div class="form-group">
+                        <div class="select-arrow-css">
+                            <label for="sel1" class="form-control">
+                    <select id="sel1" [ngFormControl]="registerform.controls['hqcountry']" #hqcountry="ngForm" (change)="getstatelist(hqcountry.value)">
+                                   <option value="">--Select Country--</option>
+                                      <option *ngFor="#cl of countrylist" [value]="cl.id">{{cl.value}}</option>
+                                </select></label></div></div>
+                   <error-messages control="hqcountry"></error-messages>
+                    <div class="form-group">
+                        <div class="select-arrow-css">
+                            <label for="sel1" class="form-control">
+                   <select id="sel1" [ngFormControl]="registerform.controls['hqstate']" #hqstate="ngForm" (change)="getcities(hqstate.value)">
+                                   <option value="">--Select State--</option>
+                                      <option *ngFor="#hs of stateList" [value]="hs.id">{{hs.value}}</option>
+                                </select></label></div></div>
+                   <error-messages control="hqstate"></error-messages>
+                    <div class="form-group">
+                        <div class="select-arrow-css">
+                            <label for="sel1" class="form-control">
+                   <select id="sel1" [ngFormControl]="registerform.controls['hqcity']" #hqcity="ngForm">
+                                   <option value="">--Select City--</option>
+                                      <option *ngFor="#hc of citylist" [value]="hc.id">{{hc.value}}</option>
+                                </select></label></div></div>
+                   <error-messages control="hqcity"></error-messages>
+                    <div class="form-group">
+                   <input type="text"  [ngFormControl]="registerform.controls['hqzip']" (keypress)="pineventHandler($event,hqzip.value)" #hqzip="ngForm" class="form-control" placeholder="ZipCOde"> </div>
+                   <error-messages control="hqzip"></error-messages>
+                    <div class="form-group">
+                   <input type="text"  [ngFormControl]="registerform.controls['hqphone1']" (keypress)="pheventHandler($event,hqphone1.value)" #hqphone1="ngForm" class="form-control" placeholder="Phone1"> </div>
+                   <error-messages control="hqphone1"></error-messages>
+                    <div class="form-group">
+                   <input type="text"  [ngFormControl]="registerform.controls['hqphone2']" (keypress)="pheventHandler($event,hqphone2.value)" #hphone2="ngForm" class="form-control" placeholder="Phone2"> </div>
+                   <error-messages control="hqphone2"></error-messages>
+                    <div class="form-group">
+                   <input type="text"  [ngFormControl]="registerform.controls['hqfax']" (keypress)="pheventHandler($event,hqfax.value)" #hqfax="ngForm" class="form-control" placeholder="Fax"> </div>
+                   <error-messages control="hqfax"></error-messages>
+                    <div class="form-group">
+                    <label>Sub Locations</label>
+                     <div class="clearfix"></div>
+                     <div *ngFor="#sl of sublocations; #i=index">
+                         <h4>Sub Location{{i+1}}</h4>
+                      <input type="text"  class="form-control" placeholder="Description" [(ngModel)]="sl.description" > 
+                      <input type="text"  class="form-control" placeholder="Address1" [(ngModel)]="sl.address1" > 
+                      <input type="text"  class="form-control" placeholder="Address2" [(ngModel)]="sl.address2" > 
+                      <div class="select-arrow-css">
+                            <label for="sel1" class="form-control">
+                    <select id="sel1" [(ngModel)]="sl.country">
+                                   <option value="">--Select Country--</option>
+                                      <option *ngFor="#cl of countrylist" [value]="cl.id">{{cl.value}}</option>
+                                </select></label></div>
+                             <div class="select-arrow-css">
+                            <label for="sel1" class="form-control">
+                   <select id="sel1" [(ngModel)]="sl.state">
+                                   <option value="">--Select State--</option>
+                                      <option *ngFor="#hs of stateList" [value]="hs.id">{{hs.value}}</option>
+                                </select></label></div>   
+                                <div class="select-arrow-css">
+                            <label for="sel1" class="form-control">
+                   <select id="sel1" [(ngModel)]="sl.city">
+                                   <option value="">--Select City--</option>
+                                      <option *ngFor="#hc of citylist" [value]="hc.id">{{hc.value}}</option>
+                                </select></label></div>
+                        <input type="text"  class="form-control" placeholder="Zip" (keypress)="pineventHandler($event,sl.zip)" [(ngModel)]="sl.zip" >
+                         <input type="text"  class="form-control" placeholder="Phone1" (keypress)="pheventHandler($event,sl.phone1)" [(ngModel)]="sl.phone1" >
+                          <input type="text"  class="form-control" placeholder="Phone2" (keypress)="pheventHandler($event,sl.phone2)" [(ngModel)]="sl.phone2" >
+                           <input type="text"  class="form-control" placeholder="Fax" (keypress)="pheventHandler($event,sl.fax)" [(ngModel)]="sl.fax" >         
+                      </div>
+                        <button type="button" class="btn btn-dotted pull-right " [disabled]="disableloca" (click)="addheadquarters()" >+ Add</button>
+                      
+                    </div>
+                    <div class="form-group">
+                        <label>Target Markets<span>*</span></label>
+                        <input type="text" class="form-control" [(ngModel)]=query (keyup)=filter($event) placeholder="Target Markets"> </div>
+                          <div class="suggestions" *ngIf="filteredList.length > 0">
+        <ul *ngFor="#item of filteredList" >
+            <li>
+                <a (click)="select(item)">{{item}}</a>
+            </li>
+        </ul>
+    </div>
+    <div *ngFor="#item of selected">
+        <div class="selected" >
+            <span>{{item}}</span>
+            <a (click)="remove(item)">x</a>
+        </div>
+    </div>
+                    <div class="form-group">
+                        <button class="btn btn-blue-inverse" [routerLink]="['Register1']">Back</button>
+                        <button type="submit" [disabled]="!registerform.valid" class="btn btn-blue pull-right">Next</button> <a href="javascript:void(0)" [routerLink]="['Register3']" class="a pull-right">Skip</a>
+                        <div class="clearfix"></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>

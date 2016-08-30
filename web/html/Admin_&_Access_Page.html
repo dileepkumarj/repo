@@ -1,0 +1,770 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Mint</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="build/css/style.css">
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <header class=" main-header">
+        <!--header-->
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed burger-button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button> <a class="navbar-brand jura-font" href="/#!/">Project Mint</a> </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right icon-padding">
+                        <li><a href="#"><i class="fa fa-envelope right-icons" aria-hidden="true"></i></a> </li>
+                        <li><a href="#"><i class="fa fa-bell-o right-icons" aria-hidden="true"></i></a> </li>
+                        <li>
+                            <a href="#" class="nopadding">
+                                <div class="icons-block relative">
+                                    <div class="user-pic"> <img src="http://www.positivemomsmagazine.com/wp-content/uploads/avatars/1/abd14ed302c20085061ea0209260c712-bpthumb.png" width="auto" height="auto" class="user-image" alt=""> </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">View Profile</a> </li>
+                                <li><a href="#">Manage Account</a> </li>
+                                <li><a href="#">Invite a friend</a> </li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="/auth/signout">Log out</a> </li>
+                            </ul>
+                        </li>
+                        <!--                <li><a href="#"><i class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></i></a> </li>-->
+                    </ul>
+                    <form class="navbar-form" id="search" role="search">
+                        <div class="form-group">
+                            <div class="inner-addon right-addon"> <i class="glyphicon glyphicon-search"></i>
+                                <input id="search-box" type="text" class="form-control" placeholder="Search"> </div>
+                        </div>
+                        <!-- <button type="submit" class="btn btn-default">Submit</button> -->
+                    </form>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+            <div id="sub-header" class="">
+                <div class="row">
+                    <div class="col-md-12">
+                        <section class="sub-header">
+                            <div class="mt-icons">
+                                <ul class="menu-icons">
+                                    <li> <a href="" class="active"><span class="home"></span>
+                    <h4>Home</h4></a> </li>
+                                    <li> <a href=""><span class="dashboard"></span>
+                    <h4>Dashboard</h4></a> </li>
+                                    <li> <a href=""><span class="connections"></span>
+                    <h4>Connection</h4></a> </li>
+                                    <li> <a href=""><span class="myprofile"></span>
+                    <h4>My Profile</h4></a> </li>
+                                    <li> <a href=""><span class="activities"></span>
+                    <h4>Activities</h4></a> </li>
+                                    <li> <a href=""><span class="subscriptions"></span>
+                    <h4>Subscriptions</h4></a> </li>
+                                </ul>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!--/header-->
+        <!--sub-header-->
+        <!--/header-->
+    </header>
+    <div class="requirement">
+        <div class="banner">
+            <div class="row">
+                <div class=" col-md-12 col-sm-12 col-lg-12">
+                    <a class="img_section"> <img src="build/images/adobe.jpg">
+                        <div class="company-profile">
+                            <div>
+                                <div> <img src="build/images/adobe-logo.jpg"> </div>
+                                <div>
+                                    <h4>Adobe</h4>
+                                    <h6>Computer Software Company</h6> </div>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="child-header">
+                        <ul>
+                            <li><a>Organization</a></li>
+                            <li><a>Project Portfolio</a></li>
+                            <li><a>Your Information</a></li>
+                            <li class="active"><a>Administration Settings</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="Admin-Access">
+                <div class="invite">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button class="btn btn-orange pull-right">+ invite</button>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="body">
+                    <h4>User Details</h4>
+                    <div class="sub-body">
+                        <ul>
+                            <li>
+                                <div class="row">
+                                    <div class="col-md-7">
+                                        <div class="header">
+                                            <h5>Jay Ram Divvala</h5>
+                                            <h6>Tech@gmail.com </h6> <span>Sub Admin</span> </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <button class="btn btn-blue" data-toggle="collapse" data-parent="#accordion" data-target="#page-settings">Page Settings</button>
+                                        <button class="btn btn-blue" data-toggle="collapse" data-parent="#accordion" data-target="#profile-settings">Profile Settings</button>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <button class="btn btn-grey">Delete</button>
+                                    </div>
+                                </div>
+                                <div class="panel-group" id="accordion">
+                                    <div class="panel">
+                                        <div id="page-settings" class="panel-collapse collapse">
+                                            <div class="access_collapse ">
+                                                <h5>Allow your Sub Admin to do Activities</h5>
+                                                <ul>
+                                                    <li>
+                                                        <div class="row">
+                                                            <div class="col-md-4"></div>
+                                                            <div class="col-md-2"><span>Create</span></div>
+                                                            <div class="col-md-2"><span>Edit</span></div>
+                                                            <div class="col-md-2"><span>View</span></div>
+                                                            <div class="col-md-2"><span>Delete</span></div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="row">
+                                                            <div class="col-md-4"><span>Dashboard</span></div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange"> NA </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange">
+                                                                    <input type="checkbox" value="None" /> </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange"> NA </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange">
+                                                                    <input type="checkbox" value="None" /> </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="row">
+                                                            <div class="col-md-4"><span>My Connections</span></div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange">
+                                                                    <input type="checkbox" value="None" /> </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange">
+                                                                    <input type="checkbox" value="None" /> </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange">
+                                                                    <input type="checkbox" value="None" /> </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange"> NA </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="row">
+                                                            <div class="col-md-4"><span>Activites</span></div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange"> NA </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange"> NA </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange">
+                                                                    <input type="checkbox" value="None" /> </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange"> NA </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="row">
+                                                            <div class="col-md-4"><span>Home</span></div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange">
+                                                                    <input type="checkbox" value="None" /> </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange">
+                                                                    <input type="checkbox" value="None" /> </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange"> NA </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange"> NA </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel">
+                                        <div id="profile-settings" class="panel-collapse collapse">
+                                            <div class="access_collapse ">
+                                                <h5>Allow your Sub Admin to do Activities</h5>
+                                                <ul>
+                                                    <li>
+                                                        <div class="row">
+                                                            <div class="col-md-4"></div>
+                                                            <div class="col-md-2"><span>Create</span></div>
+                                                            <div class="col-md-2"><span>Edit</span></div>
+                                                            <div class="col-md-2"><span>View</span></div>
+                                                            <div class="col-md-2"><span>Delete</span></div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="row">
+                                                            <div class="col-md-4"><span>Dashboard</span></div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange"> NA </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange">
+                                                                    <input type="checkbox" value="None" /> </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange"> NA </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange">
+                                                                    <input type="checkbox" value="None" /> </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="row">
+                                                            <div class="col-md-4"><span>My Connections</span></div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange">
+                                                                    <input type="checkbox" value="None" /> </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange">
+                                                                    <input type="checkbox" value="None" /> </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange">
+                                                                    <input type="checkbox" value="None" /> </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange"> NA </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="row">
+                                                            <div class="col-md-4"><span>Activites</span></div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange"> NA </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange"> NA </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange">
+                                                                    <input type="checkbox" value="None" /> </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange"> NA </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="row">
+                                                            <div class="col-md-4"><span>Home</span></div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange">
+                                                                    <input type="checkbox" value="None" /> </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange">
+                                                                    <input type="checkbox" value="None" /> </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange"> NA </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange"> NA </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="row">
+                                    <div class="col-md-7">
+                                        <div class="header">
+                                            <h5>Jay Ram Divvala</h5>
+                                            <h6>Tech@gmail.com </h6> <span>Sub Admin</span> </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <button class="btn btn-blue" data-toggle="collapse" data-parent="#accordion-2" data-target="#page-settings-2">Page Settings</button>
+                                        <button class="btn btn-blue" data-toggle="collapse" data-parent="#accordion-2" data-target="#profile-settings-2">Profile Settings</button>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <button class="btn btn-grey">Delete</button>
+                                    </div>
+                                </div>
+                                <div class="panel-group" id="accordion-2">
+                                    <div class="panel">
+                                        <div id="page-settings-2" class="panel-collapse collapse">
+                                            <div class="access_collapse ">
+                                                <h5>Allow your Sub Admin to do Activities</h5>
+                                                <ul>
+                                                    <li>
+                                                        <div class="row">
+                                                            <div class="col-md-4"></div>
+                                                            <div class="col-md-2"><span>Create</span></div>
+                                                            <div class="col-md-2"><span>Edit</span></div>
+                                                            <div class="col-md-2"><span>View</span></div>
+                                                            <div class="col-md-2"><span>Delete</span></div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="row">
+                                                            <div class="col-md-4"><span>Dashboard</span></div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange"> NA </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange">
+                                                                    <input type="checkbox" value="None" /> </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange"> NA </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange">
+                                                                    <input type="checkbox" value="None" /> </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="row">
+                                                            <div class="col-md-4"><span>My Connections</span></div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange">
+                                                                    <input type="checkbox" value="None" /> </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange">
+                                                                    <input type="checkbox" value="None" /> </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange">
+                                                                    <input type="checkbox" value="None" /> </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange"> NA </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="row">
+                                                            <div class="col-md-4"><span>Activites</span></div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange"> NA </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange"> NA </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange">
+                                                                    <input type="checkbox" value="None" /> </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange"> NA </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="row">
+                                                            <div class="col-md-4"><span>Home</span></div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange">
+                                                                    <input type="checkbox" value="None" /> </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange">
+                                                                    <input type="checkbox" value="None" /> </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange"> NA </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange"> NA </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel">
+                                        <div id="profile-settings-2" class="panel-collapse collapse">
+                                            <div class="access_collapse ">
+                                                <h5>Allow your Sub Admin to do Activities</h5>
+                                                <ul>
+                                                    <li>
+                                                        <div class="row">
+                                                            <div class="col-md-4"></div>
+                                                            <div class="col-md-2"><span>Create</span></div>
+                                                            <div class="col-md-2"><span>Edit</span></div>
+                                                            <div class="col-md-2"><span>View</span></div>
+                                                            <div class="col-md-2"><span>Delete</span></div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="row">
+                                                            <div class="col-md-4"><span>Dashboard</span></div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange"> NA </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange">
+                                                                    <input type="checkbox" value="None" /> </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange"> NA </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange">
+                                                                    <input type="checkbox" value="None" /> </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="row">
+                                                            <div class="col-md-4"><span>My Connections</span></div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange">
+                                                                    <input type="checkbox" value="None" /> </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange">
+                                                                    <input type="checkbox" value="None" /> </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange">
+                                                                    <input type="checkbox" value="None" /> </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange"> NA </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="row">
+                                                            <div class="col-md-4"><span>Activites</span></div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange"> NA </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange"> NA </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange">
+                                                                    <input type="checkbox" value="None" /> </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange"> NA </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="row">
+                                                            <div class="col-md-4"><span>Home</span></div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange">
+                                                                    <input type="checkbox" value="None" /> </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange">
+                                                                    <input type="checkbox" value="None" /> </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange"> NA </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange"> NA </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="row">
+                                    <div class="col-md-7">
+                                        <div class="header">
+                                            <h5>Jay Ram Divvala</h5>
+                                            <h6>Tech@gmail.com </h6> <span>Sub Admin</span> </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <button class="btn btn-blue" data-toggle="collapse" data-parent="#accordion-3" data-target="#page-settings-3">Page Settings</button>
+                                        <button class="btn btn-blue" data-toggle="collapse" data-parent="#accordion-3" data-target="#profile-settings-3">Profile Settings</button>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <button class="btn btn-grey">Delete</button>
+                                    </div>
+                                </div>
+                                <div class="panel-group" id="accordion-3">
+                                    <div class="panel">
+                                        <div id="page-settings-3" class="panel-collapse collapse">
+                                            <div class="access_collapse ">
+                                                <h5>Allow your Sub Admin to do Activities</h5>
+                                                <ul>
+                                                    <li>
+                                                        <div class="row">
+                                                            <div class="col-md-4"></div>
+                                                            <div class="col-md-2"><span>Create</span></div>
+                                                            <div class="col-md-2"><span>Edit</span></div>
+                                                            <div class="col-md-2"><span>View</span></div>
+                                                            <div class="col-md-2"><span>Delete</span></div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="row">
+                                                            <div class="col-md-4"><span>Dashboard</span></div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange"> NA </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange">
+                                                                    <input type="checkbox" value="None" /> </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange"> NA </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange">
+                                                                    <input type="checkbox" value="None" /> </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="row">
+                                                            <div class="col-md-4"><span>My Connections</span></div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange">
+                                                                    <input type="checkbox" value="None" /> </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange">
+                                                                    <input type="checkbox" value="None" /> </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange">
+                                                                    <input type="checkbox" value="None" /> </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange"> NA </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="row">
+                                                            <div class="col-md-4"><span>Activites</span></div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange"> NA </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange"> NA </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange">
+                                                                    <input type="checkbox" value="None" /> </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange"> NA </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="row">
+                                                            <div class="col-md-4"><span>Home</span></div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange">
+                                                                    <input type="checkbox" value="None" /> </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange">
+                                                                    <input type="checkbox" value="None" /> </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange"> NA </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange"> NA </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel">
+                                        <div id="profile-settings-3" class="panel-collapse collapse">
+                                            <div class="access_collapse ">
+                                                <h5>Allow your Sub Admin to do Activities</h5>
+                                                <ul>
+                                                    <li>
+                                                        <div class="row">
+                                                            <div class="col-md-4"></div>
+                                                            <div class="col-md-2"><span>Create</span></div>
+                                                            <div class="col-md-2"><span>Edit</span></div>
+                                                            <div class="col-md-2"><span>View</span></div>
+                                                            <div class="col-md-2"><span>Delete</span></div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="row">
+                                                            <div class="col-md-4"><span>Dashboard</span></div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange"> NA </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange">
+                                                                    <input type="checkbox" value="None" /> </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange"> NA </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange">
+                                                                    <input type="checkbox" value="None" /> </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="row">
+                                                            <div class="col-md-4"><span>My Connections</span></div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange">
+                                                                    <input type="checkbox" value="None" /> </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange">
+                                                                    <input type="checkbox" value="None" /> </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange">
+                                                                    <input type="checkbox" value="None" /> </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange"> NA </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="row">
+                                                            <div class="col-md-4"><span>Activites</span></div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange"> NA </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange"> NA </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange">
+                                                                    <input type="checkbox" value="None" /> </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange"> NA </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="row">
+                                                            <div class="col-md-4"><span>Home</span></div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange">
+                                                                    <input type="checkbox" value="None" /> </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange">
+                                                                    <input type="checkbox" value="None" /> </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange"> NA </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <div class="checkbox-orange"> NA </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Scripts -->
+    <!--        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>-->
+    <script src="build/js/jquery-2.2.4.js"></script>
+    <script src="build/js/jquery.plugins.min.js"></script>
+    <script>
+        var senseSpeed = 5;
+        var previousScroll = 0;
+        $(window).scroll(function (event) {
+            var scroller = $(this).scrollTop();
+            if (scroller - senseSpeed > previousScroll) {
+                $("#sub-header").filter(':not(:animated)').slideUp();
+            }
+            else if (scroller + senseSpeed < previousScroll) {
+                $("#sub-header").filter(':not(:animated)').slideDown();
+            }
+            previousScroll = scroller;
+        });
+    </script>
+    <!--        <script src="build/js/scripts.min.js"></script>-->
+</body>

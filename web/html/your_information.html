@@ -1,0 +1,307 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Mint</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="build/css/cropper.css">
+    <link rel="stylesheet" href="build/css/cropper-custom.css">
+    <link rel="stylesheet" href="build/css/style.css">
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <header class=" main-header">
+        <!--header-->
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed burger-button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button> <a class="navbar-brand jura-font" href="/#!/">Project Mint</a> </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right icon-padding">
+                        <li><a href="#"><i class="fa fa-envelope right-icons" aria-hidden="true"></i></a> </li>
+                        <li><a href="#"><i class="fa fa-bell-o right-icons" aria-hidden="true"></i></a> </li>
+                        <li>
+                            <a href="#" class="nopadding">
+                                <div class="icons-block relative">
+                                    <div class="user-pic"> <img src="http://www.positivemomsmagazine.com/wp-content/uploads/avatars/1/abd14ed302c20085061ea0209260c712-bpthumb.png" width="auto" height="auto" class="user-image" alt=""> </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">View Profile</a> </li>
+                                <li><a href="#">Manage Account</a> </li>
+                                <li><a href="#">Invite a friend</a> </li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="/auth/signout">Log out</a> </li>
+                            </ul>
+                        </li>
+                        <!--                <li><a href="#"><i class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></i></a> </li>-->
+                    </ul>
+                    <form class="navbar-form" id="search" role="search">
+                        <div class="form-group">
+                            <div class="inner-addon right-addon"> <i class="glyphicon glyphicon-search"></i>
+                                <input id="search-box" type="text" class="form-control" placeholder="Search"> </div>
+                        </div>
+                        <!-- <button type="submit" class="btn btn-default">Submit</button> -->
+                    </form>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+            <div id="sub-header" class="">
+                <div class="row">
+                    <div class="col-md-12">
+                        <section class="sub-header">
+                            <div class="mt-icons">
+                                <ul class="menu-icons">
+                                    <li> <a href="" class="active"><span class="home"></span>
+                    <h4>Home</h4></a> </li>
+                                    <li> <a href=""><span class="dashboard"></span>
+                    <h4>Dashboard</h4></a> </li>
+                                    <li> <a href=""><span class="connections"></span>
+                    <h4>Connection</h4></a> </li>
+                                    <li> <a href=""><span class="myprofile"></span>
+                    <h4>My Profile</h4></a> </li>
+                                    <li> <a href=""><span class="activities"></span>
+                    <h4>Activities</h4></a> </li>
+                                    <li> <a href=""><span class="subscriptions"></span>
+                    <h4>Subscriptions</h4></a> </li>
+                                </ul>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!--/header-->
+        <!--sub-header-->
+        <!--/header-->
+    </header>
+    <div class="requirement">
+        <div class="banner">
+            <div class="row">
+                <div class=" col-md-12 col-sm-12 col-lg-12">
+                    <a class="img_section"> <img src="build/images/adobe.jpg">
+                        <div class="company-profile">
+                            <div>
+                                <div> <img src="build/images/adobe-logo.jpg"> </div>
+                                <div>
+                                    <h4>Adobe</h4>
+                                    <h6>Computer Software Company</h6> </div>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="child-header">
+                        <ul>
+                            <li><a>Organization</a></li>
+                            <li><a>Project Portfolio</a></li>
+                            <li class="active"><a>Your Information</a></li>
+                            <li><a>Administration Settings</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="your-information">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="left">
+                            <div class="container" id="crop-avatar">
+                                <!-- Current avatar -->
+                                <div class="avatar-view" title="Change the avatar"> <img src="build/images/picture.jpg" alt="Avatar"> </div>
+                                <!-- Cropping modal -->
+                                <div class="modal fade" id="avatar-modal" aria-hidden="true" aria-labelledby="avatar-modal-label" role="dialog" tabindex="-1">
+                                    <!-- Loading state -->
+                                    <div class="loading" aria-label="Loading" role="img" tabindex="-1"></div>
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+                                            <form class="avatar-form" action="crop.php" enctype="multipart/form-data" method="post">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                    <h4 class="modal-title" id="avatar-modal-label">Edit Profile Pic</h4> </div>
+                                                <div class="modal-body">
+                                                    <div class="avatar-body">
+                                                        <!-- Upload image and data -->
+                                                        <div class="avatar-upload">
+                                                            <input type="hidden" class="avatar-src" name="avatar_src">
+                                                            <input type="hidden" class="avatar-data" name="avatar_data">
+                                                            <label class="btn btn-blue-inverse btn-block">
+                                                                <input type="file" class="avatar-input " id="avatarInput" name="avatar_file" style="display:none;"> Choose File </label> <span for="avatarInput">Make sure keep your image fresh ...</span> </div>
+                                                        <!-- Crop and preview -->
+                                                        <div class="row">
+                                                            <div class="col-md-9">
+                                                                <div class="avatar-wrapper"></div>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <!--                  <h5>This is how you’ll appear to others</h5>-->
+                                                                <div class="avatar-preview preview-lg"></div>
+                                                                <h4 class="avatar-name">Sridhar Kunchala</h4>
+                                                                <!--<div class="avatar-preview preview-md"></div>
+                    <div class="avatar-preview preview-sm"></div>-->
+                                                                <button type="submit" class="btn btn-blue-inverse btn-block avatar-save">Done</button>
+                                                            </div>
+                                                        </div>
+                                                        <!--    <div class="row avatar-btns">
+                  <div class="col-md-9">
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-primary" data-method="rotate" data-option="-90" title="Rotate -90 degrees">Rotate Left</button>
+                      <button type="button" class="btn btn-primary" data-method="rotate" data-option="-15">-15deg</button>
+                      <button type="button" class="btn btn-primary" data-method="rotate" data-option="-30">-30deg</button>
+                      <button type="button" class="btn btn-primary" data-method="rotate" data-option="-45">-45deg</button>
+                    </div>
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-primary" data-method="rotate" data-option="90" title="Rotate 90 degrees">Rotate Right</button>
+                      <button type="button" class="btn btn-primary" data-method="rotate" data-option="15">15deg</button>
+                      <button type="button" class="btn btn-primary" data-method="rotate" data-option="30">30deg</button>
+                      <button type="button" class="btn btn-primary" data-method="rotate" data-option="45">45deg</button>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <button type="submit" class="btn btn-primary btn-block avatar-save">Done</button>
+                  </div>
+                </div>
+          --></div>
+                                                </div>
+                                                <!-- <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div> -->
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /.modal -->
+                            </div>
+                            <!--<img src="build/images/my-profile.png" alt="">-->
+                            <h4 class="pic-head">Make Your Details</h4>
+                            <div class="btn-slider">
+                                <label> <span>Public</span>
+                                    <input type="checkbox" class="ios-switch tinyswitch" checked />
+                                    <div>
+                                        <div></div>
+                                    </div> <span>Public</span> </label>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="change-pwd"> <a data-toggle="collapse" data-parent="#accordion" data-target="#change-pwd-pannel">Change  Password</a>
+                                <div class="panel-group" id="accordion">
+                                    <div class="panel">
+                                        <div id="change-pwd-pannel" class="panel-collapse collapse">
+                                            <input type="text" class="form-control" placeholder="Enter Your Password" />
+                                            <button class="btn btn-blue-inverse">Change</button>
+                                            <div class="clearfix"></div>
+                                            <div class="new-pwd">
+                                                <input type="text" class="form-control" placeholder="New Password" disabled />
+                                                <input type="text" class="form-control" placeholder="Re Enter" disabled/>
+                                                <button class="btn btn-blue-inverse" disabled>Save</button>
+                                                <button class="btn btn-blue" disabled>Cancel</button>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="right">
+                            <div class="header">
+                                <h3>Sridhar Kunchala
+                                <button class="btn-dotted">Edit</button>
+                                <span class="clearfix"></span>
+                                </h3> <span>
+                                    <span class="color-blue">Co Founder and Director </span> at TechSimplified </span>
+                                <br/> <i class="fa fa-map-marker" aria-hidden="true">&nbsp;Telangana, India</i> </div>
+                            <div class="body">
+                                <form class="form-horizontal">
+                                    <div class="form-group">
+                                        <h5 class="control-label col-xs-12">PROFESSIONAL BIO</h5> </div>
+                                    <div class="form-group">
+                                        <div class="col-xs-12"> <span class="form-control-static">
+                                            Lorum epsum ontrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor.
+                                            </span> </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <h5 class="control-label col-xs-12">CONTACT INFO</h5> </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-xs-4">E-Mail</label>
+                                        <label class="control-label col-xs-1">:</label>
+                                        <div class="col-xs-7">
+                                            <p class="form-control-static">sridhar.kunchala@yahoo.in</p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-xs-4"> Alternative E-Mail</label>
+                                        <label class="control-label col-xs-1">:</label>
+                                        <div class="col-xs-7">
+                                            <p class="form-control-static">sridhar.kunchala@gamil.com</p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-xs-4">Contact No</label>
+                                        <label class="control-label col-xs-1">:</label>
+                                        <div class="col-xs-7">
+                                            <p class="form-control-static">+91 9876543210</p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-xs-4">Website</label>
+                                        <label class="control-label col-xs-1">:</label>
+                                        <div class="col-xs-7">
+                                            <p class="form-control-static">Techsimplified.net</p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <h5 class="control-label col-xs-12">Basic INFO</h5> </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-xs-4">D.O.B</label>
+                                        <label class="control-label col-xs-1">:</label>
+                                        <div class="col-xs-7">
+                                            <p class="form-control-static">29-Jul-1987</p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-xs-4">Gender</label>
+                                        <label class="control-label col-xs-1">:</label>
+                                        <div class="col-xs-7">
+                                            <p class="form-control-static">Male</p>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Scripts -->
+    <!--        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>-->
+    <script src="build/js/jquery-2.2.4.js"></script>
+    <script src="build/js/jquery.plugins.min.js"></script>
+    <script src="build/js/cropper.js"></script>
+    <script src="build/js/cropper-custom.js"></script>
+    <script>
+        var senseSpeed = 5;
+        var previousScroll = 0;
+        $(window).scroll(function (event) {
+            var scroller = $(this).scrollTop();
+            if (scroller - senseSpeed > previousScroll) {
+                $("#sub-header").filter(':not(:animated)').slideUp();
+            }
+            else if (scroller + senseSpeed < previousScroll) {
+                $("#sub-header").filter(':not(:animated)').slideDown();
+            }
+            previousScroll = scroller;
+        });
+    </script>
+    <!--        <script src="build/js/scripts.min.js"></script>-->
+</body>

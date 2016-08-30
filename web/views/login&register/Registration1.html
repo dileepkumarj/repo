@@ -1,0 +1,81 @@
+<div style="margin-top: 52px;">
+    <header class="navbar-fixed-top" >
+        <!--header-->
+        <nav class="navbar navbar-default ">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed burger-button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button> <a class="navbar-brand jura-font" href="javascript:void(0)">Project Mint</a> </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+        </nav>
+        <!--/header-->
+    </header>
+    <div class="container">
+        <div class="form_info">
+            <div class="header">
+                <h3>
+                Organization Info
+            </h3> </div>
+            <div class="body">
+                <form [ngFormModel]="registerform" (ngSubmit)="submit()">
+                    <div class="form-group">
+                        <label for="inputPassword">Service Category <span>*</span></label>
+                        <div class="select-arrow-css">
+                            <label for="sel1" class="form-control" >
+                                <select id="sel1" [ngFormControl]="registerform.controls['serviceCategory']" #serviceCategory="ngForm" (change)="getserviceSub(serviceCategory.value)">
+                                    <option value="">--Select--</option>
+                                      <option *ngFor="#sc of serviceCategorylist" [value]="sc.value">{{sc.value}}</option>
+                                </select>
+                            </label>
+                            <error-messages control="serviceCategory"></error-messages>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword">Sub Category of Services <span>*</span></label>
+                        <div class="select-arrow-css">
+                            <label for="sel1" class="form-control">
+                                 <select id="sel1" [ngFormControl]="registerform.controls['servicesubCategory']" #servicesubCategory="ngForm">
+                                    <option value="">--Select--</option>
+                                      <option *ngFor="#ssc of servicesubCategorylist" [value]="ssc.value">{{ssc.value}}</option>
+                                </select>
+                            </label>
+                            <error-messages control="servicesubCategory"></error-messages>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword">Business Domain <span>*</span></label>
+                        <div class="select-arrow-css">
+                            <label for="sel1" class="form-control">
+          <select id="sel1" [ngFormControl]="registerform.controls['businessDomain']" #businessDomain="ngForm">
+                                    <option value="">--Select--</option>
+                                      <option *ngFor="#bd of businessDomainlist" [value]="bd.value">{{bd.value}}</option>
+                                </select>
+                            </label>
+                                                    <error-messages control="businessDomain"></error-messages>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Year of Incorporation<span>*</span></label>
+                        <input type="text" class="form-control" (keypress)="eventHandler($event,yearofincorp.value)" [ngFormControl]="registerform.controls['yearofincorp']" #yearofincorp="ngForm" placeholder="Year of Incorporation"> </div>
+                        <error-messages control="yearofincorp"></error-messages>
+                    <div class="form-group">
+                        <label>Organization Discription<span>*</span></label>
+                        <textarea class="form-control" [ngFormControl]="registerform.controls['orgdescrip']" #orgdescrip="ngForm"></textarea>
+                    </div>
+                        <error-messages control="orgdescrip"></error-messages>
+                    <div class="form-group">
+                        <label>Website URL</label>
+                        <input type="text" class="form-control" [ngFormControl]="registerform.controls['websiteurl']" #websiteurl="ngForm" placeholder="Website URL"> </div>
+                    <error-messages control="websiteurl"></error-messages>
+                    <div class="form-group">
+                        <button class="btn btn-blue-inverse" [disabled]="true">Back</button>
+                        <button type="submit"  [disabled]="!registerform.valid" class="btn btn-blue pull-right">Next</button> <a href="javascript:void(0)" [routerLink]="['Register2']" class="a pull-right">Skip</a>
+                        <div class="clearfix"></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

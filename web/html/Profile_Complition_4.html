@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Mint</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="build/css/style.css"> </head>
+
+<body style="margin-top: 52px;">
+    <header class="navbar-fixed-top">
+        <!--header-->
+        <nav class="navbar navbar-default ">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed burger-button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button> <a class="navbar-brand jura-font" href="/#!/">Project Mint</a> </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+        </nav>
+        <!--/header-->
+    </header>
+    <div class="container">
+        <div class="form_info">
+            <div class="header">
+                <h3>
+Lorum epsum
+                        </h3> </div>
+            <div class="body">
+                <form>
+                    <div class="form-group">
+                        <label>Client Name<span>*</span></label>
+                        <button class="btn btn-dotted pull-right ">+ Add</button>
+                        <div class="clearfix"></div>
+                        <input type="text" class="form-control" placeholder="Client Name "> </div>
+                   
+                      <div class="form-group">
+                        <label>Testimonials<span>*</span></label>
+                        <button class="btn btn-dotted pull-right ">+ Request</button>
+                        <div class="clearfix"></div>
+                        <input type="text" class="form-control" placeholder="E-mail ">
+                          </div>
+                                         <div class="form-group">
+
+                        <textarea class="form-control" placeholder="Comments..."></textarea>
+                    </div>                   
+                    <div class="form-group">
+                        <button class="btn btn-blue-inverse">Back</button>
+                        <button type="submit" class="btn btn-blue pull-right">Next</button> <a href="#" class="a pull-right">Skip</a>
+                        <div class="clearfix"></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Scripts -->
+    <!--        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>-->
+    <script src="build/js/jquery-2.2.4.js"></script>
+    <script src="build/js/jquery.plugins.min.js"></script>
+    <script>
+        var senseSpeed = 5;
+        var previousScroll = 0;
+        $(window).scroll(function (event) {
+            var scroller = $(this).scrollTop();
+            if (scroller - senseSpeed > previousScroll) {
+                $("#sub-header").filter(':not(:animated)').slideUp();
+            }
+            else if (scroller + senseSpeed < previousScroll) {
+                $("#sub-header").filter(':not(:animated)').slideDown();
+            }
+            previousScroll = scroller;
+        });
+    </script>
+    <!--        <script src="build/js/scripts.min.js"></script>-->
+</body>
+
+</html>
